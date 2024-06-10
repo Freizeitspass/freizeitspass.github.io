@@ -1,5 +1,3 @@
-/* CSS-Stile für die Neuseelandreise */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap');
 
 body {
@@ -52,7 +50,7 @@ article figure>img {
 #map {
     width: 90%;
     height: 600px;
-    border: 1px solid silver;
+    border: 1px solid white;
     margin: auto;
 }
 
