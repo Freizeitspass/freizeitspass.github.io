@@ -69,7 +69,6 @@ a {
 }
 
 header img,
-figure>img,
 #map {
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
@@ -85,4 +84,12 @@ figure>img,
         margin-left: 0;
         width: 100%;
     }
+}
+
+.rechteck {
+    height: 300px;
+    width: 225px;
+    background-color: #008000;
+    margin-top: 20px;
+    /* Abstand zum Header-Bild */
 }
