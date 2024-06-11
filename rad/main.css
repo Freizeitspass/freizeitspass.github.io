@@ -87,9 +87,8 @@ header img,
 }
 
 .rechteck {
-    height: 300px;
-    width: 225px;
-    background-color: #008000;
+    height: 150px;
+    width: 570px;
+    background-color: #6ca3e2;
     margin-top: 20px;
-    /* Abstand zum Header-Bild */
 }
