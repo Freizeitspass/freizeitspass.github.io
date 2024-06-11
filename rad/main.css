@@ -18,13 +18,18 @@ header a img {
     margin-top: -50px;
 }
 
-.rechteck {
-    height: 150px;
-    width: 992px;
-    background-color: #6ca3e2;
+
+nav {
+    position: relative;
+    display: block;
     margin: auto;
     margin-top: -5px;
-    display: block;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    text-align: center;
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 main {
