@@ -36,6 +36,28 @@ L.control.scale({
     imperial: false,
 }).addTo(map);
 
+//Pulldown (noch nur kopiert und nicht verändert von biketirol)
+let pulldown = document.querySelector("#pulldown");
+// console.log("Pulldown: ", pulldown);
+
+for (let etappe of ETAPPEN) {
+    let status = "";
+    if (etappe.nr == 19) {
+        status = " selected ";
+    }
+    pulldown.innerHTML += `<option ${status} value="${etappe.user}">Etappe ${etappe.nr}: ${etappe.titel}</option>`;
+};
+
+pulldown.onchange = function (evt) {
+    // console.log("Pulldown change event: ", evt);
+    // console.log("User: ", evt.target.value);
+    let username = evt.target.value;
+    let url = `https://${username}.github.io/biketirol`;
+    // console.log("Url: ", url);
+    // console.log(window.location);
+    window.location.href = url;
+}
+
 // MiniMap 
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
     attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
