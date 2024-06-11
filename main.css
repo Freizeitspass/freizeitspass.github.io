@@ -11,11 +11,26 @@ header>img {
     max-width: 100%;
 }
 
-header a img {
-    border-radius: 50%;
+.bree-serif-regular {
+    font-family: "Bree Serif", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+nav {
+    position: relative;
     display: block;
     margin: auto;
-    margin-top: -50px;
+    margin-top: -5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    font-family: "Bree Serif";
+    font-size: 18px;
 }
 
 main {
@@ -65,7 +80,7 @@ footer nav {
 }
 
 a {
-    color: red;
+    color: darkblue;
 }
 
 header img,
