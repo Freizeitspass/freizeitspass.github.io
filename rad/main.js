@@ -8,18 +8,47 @@ let map = L.map("map", {
     fullscreenControl: true,
 }).setView([lat, lng], 11);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// thematische Layer
+let themaLayer = {
+    route: L.featureGroup(),
+}
+
+// WMTS Hintergrundlayer der eGrundkarte Tirol
+let eGrundkarteTirol = {
+    sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
+        attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+    }),
+    winter: L.tileLayer(
+        "https://wmts.kartetirol.at/gdi_winter/{z}/{x}/{y}.png", {
+        attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+    }),
+    ortho: L.tileLayer("https://wmts.kartetirol.at/gdi_ortho/{z}/{x}/{y}.png", {
+        attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+    }
+    ),
+    nomenklatur: L.tileLayer("https://wmts.kartetirol.at/gdi_nomenklatur/{z}/{x}/{y}.png", {
+        attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
+        pane: "overlayPane",
+    }),
+}
+
+// Hintergrundlayer eGrundkarte Tirol mit GPX-Route overlay
+L.control.layers({
+    "eGrundkarte Tirol Sommer": L.layerGroup([
+        eGrundkarteTirol.sommer,
+        eGrundkarteTirol.nomenklatur
+    ]).addTo(map),
+    "eGrundkarte Tirol Winter": L.layerGroup([
+        eGrundkarteTirol.winter,
+        eGrundkarteTirol.nomenklatur
+    ]),
+    "eGrundkarte Tirol Orthofoto": L.layerGroup([
+        eGrundkarteTirol.ortho,
+        eGrundkarteTirol.nomenklatur,
+    ])
 }).addTo(map);
 
 //Maßstab hinzugefügt
 L.control.scale({
     imperial: false,
 }).addTo(map);
-
-//Popup hinzugefügt
-let marker = L.marker([47.268333, 11.393333]).addTo(map);
-marker.bindPopup(`
-<b> Innsbruck </b>
-`).openPopup(); 
