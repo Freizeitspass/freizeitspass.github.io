@@ -10,10 +10,9 @@ let lat = 47.268333;
 let lng = 11.393333;
 let zoom = 11; 
 
-let map = L.map('map', {
-    center: [lat, lng],
-    zoom: zoom
-});
+let map = L.map("map", {
+    fullscreenControl: true,
+}).setView([lat,lng], 11); 
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
