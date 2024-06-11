@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Rubik+Mono+One&display=swap');
 
 body {
-    font-family: 'Open Sans', sans-serif;
     background-color: #d3ecf2;
     max-width: 1380px;
     margin: auto;
+
 }
 
 header>img {
     max-width: 100%;
 }
 
+.bree-serif-regular {
+    font-family: "Bree Serif", serif;
+    font-weight: 600;
+    font-style: normal;
+}
 
 nav {
     position: relative;
@@ -19,10 +25,12 @@ nav {
     margin-top: -5px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 25px;
-    text-align: center;
+    display: flex;
+    gap: 20px;
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    font-family: "Bree Serif";
 }
 
 main {
@@ -64,11 +72,6 @@ article figure>img {
 footer {
     text-align: center;
     padding: 1em 2em 3em 2em;
-}
-
-footer nav {
-    display: grid;
-    grid-template-columns: 40% 20% 40%;
 }
 
 header img,
