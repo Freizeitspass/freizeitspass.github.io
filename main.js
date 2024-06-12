@@ -59,11 +59,45 @@ L.control.rainviewer({
 
 //Locate control
 var lc = L.control
-  .locate({
-    position: "topright",
-    strings: {
-      title: "Wo bin ich?"
-    }
-  })
-  .addTo(map);
+    .locate({
+        position: "topright",
+        strings: {
+            title: "Wo bin ich?"
+        }
+    })
+    .addTo(map);
+
+//Reachability
+var reachability = L.control.reachability({
+    apiKey: '5b3ce3597851110001cf62483132be05085146fa9c513961e12c7208',
+    opacity: 0.6,
+    range: [5, 10, 15],
+    label: 'Erreichbarkeit',
+    serviceUrl: 'https://api.openrouteservice.org/v2/isochrones',
+    travelModeButton1Content: '',
+    travelModeButton1StyleClass: 'fa fa-car',
+    travelModeButton2Content: '',
+    travelModeButton2StyleClass: 'fa fa-bicycle',
+    travelModeButton3Content: '',
+    travelModeButton3StyleClass: 'fa fa-person-walking',
+    travelModeButton4Content: '',
+    travelModeButton4StyleClass: 'fa fa-wheelchair', 
+    drawButtonContent: '',
+    drawButtonStyleClass: 'fa fa-pencil',
+    deleteButtonContent: '',
+    deleteButtonStyleClass: 'fa fa-trash',
+    distanceButtonContent: '',
+    distanceButtonStyleClass: 'fa fa-ruler-horizontal',
+    timeButtonContent: '',
+    timeButtonStyleClass: 'fa fa-clock', 
+}).addTo(map);
+
+// Ereignislistener für Klicks auf die Karte, um Erreichbarkeitszonen zu erstellen
+map.on('click', function (e) {
+    reachability.addTo(map).setLatLng(e.latlng);
+    reachability.queryService({
+        locations: [[e.latlng.lng, e.latlng.lat]]
+    });
+});
+
 
