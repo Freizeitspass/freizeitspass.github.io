@@ -66,3 +66,22 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
 }), {
     toggleDisplay: true,
 }).addTo(map);
+
+// Initialize the sidebar
+var sidebar = L.control.sidebar({
+    container: 'sidebar',
+    closeButton: true,
+    position: 'left'
+}).addTo(map);
+
+// Example marker with popup content
+var marker = L.marker([47.2682, 11.3928]).addTo(map);
+marker.on('click', function () {
+    sidebar.open('home');
+    document.getElementById('sidebar-content').innerHTML = '<h2>Rennradstrecke</h2><p>Dies ist eine Beschreibung der Rennradstrecke.</p>';
+});
+
+// Open sidebar on marker click
+marker.bindPopup("Klicken Sie hier für mehr Informationen").on('click', function () {
+    sidebar.open('home');
+});
