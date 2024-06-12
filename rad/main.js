@@ -31,7 +31,7 @@ L.control.layers({
         eGrundkarteTirol.nomenklatur
     ]).addTo(map),
 }, {
-    "GPX-Route": themaLayer.route.addTo(map)
+    "Ellbögen-Runde": themaLayer.route.addTo(map)
 }).addTo(map);
 
 let controlElevation = L.control.elevation({}).addTo(map);
