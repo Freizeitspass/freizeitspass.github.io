@@ -92,3 +92,39 @@ header img,
         width: 100%;
     }
 }
+
+/* Einbindung der Videos */
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Abstand zwischen den Videos */
+    margin-bottom: 20px;
+    /* Abstand zum unteren Inhalt
+    padding: 10px;
+    /* Padding um die Videos herum 
+    background-color: #baced3;
+    /* Hintergrundfarbe des Containers 
+    border-radius: 10px;
+    /* Abgerundete Ecken des Containers 
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    /* Schatteneffekt für den Container */
+}
+
+.video-container iframe {
+    border: none;
+    /* Entfernt die Ränder der iframes */
+    border-radius: 10px;
+    /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Schatteneffekt */
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Transition für Hover-Effekt */
+}
+
+.video-container iframe:hover {
+    transform: scale(1.05);
+    /* Vergrößerung bei Hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Stärkerer Schatten bei Hover */
+}
