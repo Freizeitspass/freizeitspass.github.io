@@ -9,7 +9,8 @@ let map = L.map("map", {
 
 // thematische Layer
 let themaLayer = {
-    route: L.featureGroup(),
+    karwendel: L.featureGroup(),
+    inntal: L.featureGroup(),
 }
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
@@ -29,12 +30,64 @@ L.control.layers({
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
     ]).addTo(map),
+}, {
+    "Karwendel Höhenweg": themaLayer.karwendel.addTo(map),
+    "Inntal Höhenweg": themaLayer.inntal.addTo(map)
 }).addTo(map);
+
+/* let controlElevation = L.control.elevation({}).addTo(map);
+controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx");
+controlElevation.load("data/gps-track-inntaler-hoehenweg.gpx")
+*/
+
+let controlElevationKarwendel = L.control.elevation({
+    position: "bottomright",
+    theme: "lime-theme",
+    detached: true,
+    elevationDiv: "#elevation-div-karwendel"
+}).addTo(map);
+
+let controlElevationInntal = L.control.elevation({
+    position: "bottomright",
+    theme: "steelblue-theme",
+    detached: true,
+    elevationDiv: "#elevation-div-inntal"
+}).addTo(map);
+
+/ Laden der GPX-Daten und Hinzufügen zu den entsprechenden Layern
+new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
+    async: true,
+    marker_options: {
+        startIconUrl: 'images/pin-icon-start.png',
+        endIconUrl: 'images/pin-icon-end.png',
+        shadowUrl: 'images/pin-shadow.png'
+    }
+}).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+    controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
+}).addTo(themaLayer.karwendel);
+
+new L.GPX("data/gps-track-inntaler-hoehenweg.gpx", {
+    async: true,
+    marker_options: {
+        startIconUrl: 'images/pin-icon-start.png',
+        endIconUrl: 'images/pin-icon-end.png',
+        shadowUrl: 'images/pin-shadow.png'
+    }
+}).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+    controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
+}).addTo(themaLayer.inntal);
+
+
 
 //Maßstab 
 L.control.scale({
     imperial: false,
 }).addTo(map);
+
+//Höhenprofil und gpx
+
 
 /*
 //Pulldown (noch nur kopiert und nicht verändert von biketirol)
@@ -67,6 +120,7 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
     toggleDisplay: true,
 }).addTo(map);
 
+/*
 // Initialize the sidebar
 var sidebar = L.control.sidebar({
     container: 'sidebar',
@@ -86,6 +140,7 @@ marker.bindPopup("Klicken Sie hier für mehr Informationen").on('click', functio
     sidebar.open('home');
 });
 
+*/
 //Rainviewer Plugin
 L.control.rainviewer({
     position: 'bottomleft',
