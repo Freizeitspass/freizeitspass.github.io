@@ -92,12 +92,28 @@ var reachability = L.control.reachability({
     timeButtonStyleClass: 'fa fa-clock', 
 }).addTo(map);
 
-// Ereignislistener für Klicks auf die Karte, um Erreichbarkeitszonen zu erstellen
 map.on('click', function (e) {
     reachability.addTo(map).setLatLng(e.latlng);
     reachability.queryService({
         locations: [[e.latlng.lng, e.latlng.lat]]
     });
 });
+
+// Popup Fenster un die Karte eingefügt
+window.addEventListener('load', function() {
+
+    var popupContainer = document.getElementById('popupContainer');
+    var closeButton = document.getElementById('closeButton');
+
+    // Popup anzeigen
+    popupContainer.style.display = 'block';
+
+    // Schließen des Popups hinzufügen
+    closeButton.addEventListener('click', function() {
+        popupContainer.style.display = 'none';
+    });
+});
+
+
 
 
