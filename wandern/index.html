@@ -23,7 +23,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css" integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js" integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- Leaflet Sidebar V2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-sidebar-v2/3.0.0/leaflet-sidebar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-sidebar-v2/3.0.0/leaflet-sidebar.min.js"></script>
+
     <script defer src="main.js"></script>
+
 </head>
 
 <body>
@@ -61,6 +66,35 @@
             </div>
 
             <div id="map" style="width: 100%; height: 600px;" align="middle"></div>
+
+            <!-- Sidebar -->
+            <div id="sidebar" class="leaflet-sidebar collapsed">
+                <!-- Nav tabs -->
+                <div class="leaflet-sidebar-tabs">
+                    <ul role="tablist">
+                        <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                        <li><a href="#info" role="tab"><i class="fa fa-info"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Tab panes -->
+                <div class="leaflet-sidebar-content">
+                    <div class="leaflet-sidebar-pane" id="home">
+                        <h1 class="leaflet-sidebar-header">
+                            Sidebar
+                            <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                        </h1>
+                        <div id="sidebar-content"></div>
+                    </div>
+                    <div class="leaflet-sidebar-pane" id="info">
+                        <h1 class="leaflet-sidebar-header">
+                            Info
+                            <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                        </h1>
+                        <p>Informationen über die Sidebar</p>
+                    </div>
+                </div>
+            </div>
 
         </article>
     </main>
