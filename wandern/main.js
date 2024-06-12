@@ -36,6 +36,7 @@ L.control.scale({
     imperial: false,
 }).addTo(map);
 
+/*
 //Pulldown (noch nur kopiert und nicht verändert von biketirol)
 let pulldown = document.querySelector("#pulldown");
 // console.log("Pulldown: ", pulldown);
@@ -57,6 +58,7 @@ pulldown.onchange = function (evt) {
     // console.log(window.location);
     window.location.href = url;
 }
+*/
 
 // MiniMap 
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
