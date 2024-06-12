@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freizeitspass</title>
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Leaflet Map-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!--Leaflet Fullscreen-->
+    <script
+        src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link
+        href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+        rel='stylesheet' />
+
+    <!-- Leaflet MiniMap -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js"
+        integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
+        integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
+        integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <main>
+        <article>
+            <header>
+                <!--Bild: https://pixabay.com/photos/sports-cycling-races-cycles-move-4663417/-->
+                <img src="bilder/header-rad.jpg" alt="Radrennen in den Alpen">
+
+                <nav>
+                    FREIZEITSPASS IN INNSBRUCK:
+                    <a href="https://freizeitspass.github.io"><i class="fa-solid fa-house"></i>
+                        Startseite</a>
+                    <a href="https://freizeitspass.github.io/wandern"> <i
+                            class="fa-solid fa-person-hiking"></i> Wanderwege</a>
+                    <a href="https://freizeitspass.github.io/rad"> <i
+                            class="fa-solid fa-person-biking"></i> Rennradstrecken</a>
+                    <a href="https://freizeitspass.github.io"> <i class="fa-solid fa-phone"></i>
+                        Impressum/Kontakt</a>
+
+                </nav>
+            </header>
+
+
+            <h1>Die besten Strecken für deine Fahrt mit dem Rennrad ab Innsbruck</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                delenit a</p>
+
+            <div id="map" style="width: 100%;height: 600px;" align="middle"></div>
+
+        </article>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
