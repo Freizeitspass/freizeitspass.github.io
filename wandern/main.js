@@ -9,9 +9,13 @@ let map = L.map("map", {
 
 // thematische Layer
 let themaLayer = {
-    karwendel: L.featureGroup(),
-    inntal: L.featureGroup(),
+    karwendelLayer: L.featureGroup(),
+    inntalLayer: L.featureGroup(),
 }
+let karwendelLayer = L.featureGroup();
+let inntalLayer = L.featureGroup();
+
+
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -40,6 +44,31 @@ controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx");
 controlElevation.load("data/gps-track-inntaler-hoehenweg.gpx")
 */
 
+//ausprobieren von ChatGPT
+new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
+    async: true,
+    marker_options: {
+        startIconUrl: 'images/pin-icon-start.png',
+        endIconUrl: 'images/pin-icon-end.png',
+        shadowUrl: 'images/pin-shadow.png'
+    }
+}).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+    controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
+}).addTo(karwendelLayer);
+
+new L.GPX("data/gps-track-inntaler-hoehenweg.gpx", {
+    async: true,
+    marker_options: {
+        startIconUrl: 'images/pin-icon-start.png',
+        endIconUrl: 'images/pin-icon-end.png',
+        shadowUrl: 'images/pin-shadow.png'
+    }
+}).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+    controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
+}).addTo(inntalLayer);
+
 let controlElevationKarwendel = L.control.elevation({
     position: "bottomright",
     theme: "lime-theme",
@@ -65,7 +94,7 @@ new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
 }).on('loaded', function (e) {
     map.fitBounds(e.target.getBounds());
     controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
-}).addTo(themaLayer.karwendel);
+});
 
 new L.GPX("data/gps-track-inntaler-hoehenweg.gpx", {
     async: true,
@@ -77,8 +106,7 @@ new L.GPX("data/gps-track-inntaler-hoehenweg.gpx", {
 }).on('loaded', function (e) {
     map.fitBounds(e.target.getBounds());
     controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
-}).addTo(themaLayer.inntal);
-
+});
 
 
 //Maßstab 
@@ -140,7 +168,17 @@ marker.bindPopup("Klicken Sie hier für mehr Informationen").on('click', functio
     sidebar.open('home');
 });
 
+
+
 */
+
+let overlayLayers = {
+    "Karwendel Hoehenweg": karwendelLayer,
+    "Inntal Hoehenweg": inntalLayer
+};
+L.control.layers(null, overlayLayers).addTo(map);
+
+
 //Rainviewer Plugin
 L.control.rainviewer({
     position: 'bottomleft',
