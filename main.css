@@ -128,3 +128,18 @@ header img,
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     /* Stärkerer Schatten bei Hover */
 }
+
+.leaflet-sidebar .leaflet-sidebar-pane {
+    padding: 10px;
+}
+
+.leaflet-sidebar .leaflet-sidebar-header {
+    background: #f7f7f7;
+    padding: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaflet-sidebar .leaflet-sidebar-close {
+    cursor: pointer;
+}
