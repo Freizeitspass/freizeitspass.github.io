@@ -99,21 +99,50 @@ map.on('click', function (e) {
     });
 });
 
-// Popup Fenster un die Karte eingefügt
-window.addEventListener('load', function() {
+// HTML für das Popup-Fenster erstellen
+var popupContent = '<div class="popup-container" id="popupContainer">' +
+                   '<div class="popup">' +
+                   '<span class="close" id="closeButton">&times;</span>' +
+                   '<p>Willkommen auf unserer Webseite!</p>' +
+                   '</div>' +
+                   '</div>';
 
-    var popupContainer = document.getElementById('popupContainer');
-    var closeButton = document.getElementById('closeButton');
+// HTML zum Body-Element hinzufügen
+document.body.insertAdjacentHTML('beforeend', popupContent);
 
-    // Popup anzeigen
-    popupContainer.style.display = 'block';
+// Elemente abrufen
+var popupContainer = document.getElementById('popupContainer');
+var closeButton = document.getElementById('closeButton');
 
-    // Schließen des Popups hinzufügen
-    closeButton.addEventListener('click', function() {
-        popupContainer.style.display = 'none';
-    });
+// Event-Listener für das Schließen des Popups hinzufügen
+closeButton.addEventListener('click', function() {
+    popupContainer.style.display = 'none';
 });
 
+// Positionieren des Popups über der Karte
+function positionPopup() {
+    var mapTop = map._container.getBoundingClientRect().top;
+    var mapLeft = map._container.getBoundingClientRect().left;
+    var mapWidth = map._container.offsetWidth;
+
+    var popupHeight = popupContainer.offsetHeight;
+    var popupWidth = popupContainer.offsetWidth;
+
+    var topOffset = 20; // Abstand von der Oberseite der Karte
+
+    var popupTop = mapTop + topOffset;
+    var popupLeft = mapLeft + mapWidth / 2 - popupWidth / 2;
+
+    popupContainer.style.top = popupTop + 'px';
+    popupContainer.style.left = popupLeft + 'px';
+}
+
+// Position des Popups aktualisieren, wenn sich die Karte ändert
+map.on('resize', positionPopup);
+map.on('move', positionPopup);
+
+// Initial Popup positionieren
+positionPopup();
 
 
 
