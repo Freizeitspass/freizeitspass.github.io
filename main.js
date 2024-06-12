@@ -8,11 +8,11 @@
 //Map initialisieren
 let lat = 47.268333;
 let lng = 11.393333;
-let zoom = 11; 
+let zoom = 11;
 
 let map = L.map("map", {
     fullscreenControl: true,
-}).setView([lat,lng], 11); 
+}).setView([lat, lng], 11);
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -36,7 +36,7 @@ L.control.layers({
 //Maßstab hinzugefügt
 L.control.scale({
     imperial: false,
-}).addTo(map); 
+}).addTo(map);
 
 //Minimap hinzugefügt
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -44,3 +44,16 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
 }), {
     toggleDisplay: true,
 }).addTo(map);
+
+//Rainviewer Plugin
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
+
