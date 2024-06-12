@@ -57,3 +57,13 @@ L.control.rainviewer({
     opacity: 0.5
 }).addTo(map);
 
+//Locate controle
+var lc = L.control
+  .locate({
+    position: "topright",
+    strings: {
+      title: "Show me where I am, yo!"
+    }
+  })
+  .addTo(map);
+
