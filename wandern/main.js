@@ -66,7 +66,7 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
 }), {
     toggleDisplay: true,
 }).addTo(map);
-
+/*
 // Initialize the sidebar
 var sidebar = L.control.sidebar({
     container: 'sidebar',
@@ -86,6 +86,7 @@ marker.bindPopup("Klicken Sie hier für mehr Informationen").on('click', functio
     sidebar.open('home');
 });
 
+*/
 //Rainviewer Plugin
 L.control.rainviewer({
     position: 'bottomleft',
