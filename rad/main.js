@@ -24,7 +24,7 @@ let eGrundkarteTirol = {
     }),
 }
 
-// Hintergrundlayer eGrundkarte Tirol
+// Hintergrundlayer eGrundkarte Tirol mit GPX Overlay
 L.control.layers({
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
@@ -36,6 +36,9 @@ L.control.layers({
 
 let controlElevation = L.control.elevation({}).addTo(map);
 controlElevation.load("data/ellboegen.gpx");
+
+//Pulldown
+let pulldown = document.querySelector("#pulldown");
 
 
 //Maßstab 
