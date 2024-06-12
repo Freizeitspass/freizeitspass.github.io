@@ -144,3 +144,21 @@ header img,
     cursor: pointer;
 }
 
+.popup-container {
+    position: absolute;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.popup {
+    color: #333;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
