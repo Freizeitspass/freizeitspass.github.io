@@ -43,3 +43,13 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
 }), {
     toggleDisplay: true,
 }).addTo(map);
+
+//Locate controle
+var lc = L.control
+    .locate({
+        position: "topright",
+        strings: {
+            title: "Show me where I am, yo!"
+        }
+    })
+    .addTo(map);
