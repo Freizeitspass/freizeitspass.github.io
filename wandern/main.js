@@ -29,12 +29,23 @@ L.control.layers({
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
     ]).addTo(map),
+}, {
+    "Karwendel Höhenweg": themaLayer.route.addTo(map),
+    "Inntal Höhenweg": themaLayer.route.addTo(map)
 }).addTo(map);
+
+let controlElevation = L.control.elevation({}).addTo(map);
+controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx");
+controlElevation.load("data/gps-track-inntaler-hoehenweg.gpx")
+
 
 //Maßstab 
 L.control.scale({
     imperial: false,
 }).addTo(map);
+
+//Höhenprofil und gpx
+
 
 /*
 //Pulldown (noch nur kopiert und nicht verändert von biketirol)
@@ -66,6 +77,7 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
 }), {
     toggleDisplay: true,
 }).addTo(map);
+
 /*
 // Initialize the sidebar
 var sidebar = L.control.sidebar({
