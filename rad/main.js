@@ -30,12 +30,19 @@ L.control.layers({
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
     ]).addTo(map),
+}, {
+    "GPX-Route": themaLayer.route.addTo(map)
 }).addTo(map);
+
+let controlElevation = L.control.elevation({}).addTo(map);
+controlElevation.load("data/ellboegen.gpx");
+
 
 //Maßstab 
 L.control.scale({
     imperial: false,
 }).addTo(map);
+
 
 // MiniMap 
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -65,3 +72,4 @@ L.control.rainviewer({
     animationInterval: 500,
     opacity: 0.5
 }).addTo(map);
+
