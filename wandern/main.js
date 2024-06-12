@@ -54,7 +54,7 @@ let controlElevationInntal = L.control.elevation({
     elevationDiv: "#elevation-div-inntal"
 }).addTo(map);
 
-/ Laden der GPX-Daten und Hinzufügen zu den entsprechenden Layern
+// Laden der GPX-Daten und Hinzufügen zu den entsprechenden Layern
 new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
     async: true,
     marker_options: {
