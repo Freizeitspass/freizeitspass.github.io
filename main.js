@@ -24,12 +24,6 @@ L.control.scale({
     imperial: false,
 }).addTo(map); 
 
-//Popup hinzugefügt
-let marker = L.marker ([47.268333, 11.393333]).addTo(map); 
-marker.bindPopup (`
-<b> Innsbruck </b>
-`).openPopup(); 
-
 //Minimap hinzugefügt
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
     attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
