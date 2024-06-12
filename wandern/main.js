@@ -85,3 +85,25 @@ marker.on('click', function () {
 marker.bindPopup("Klicken Sie hier für mehr Informationen").on('click', function () {
     sidebar.open('home');
 });
+
+//Rainviewer Plugin
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
+
+//Locate controle
+var lc = L.control
+    .locate({
+        position: "topright",
+        strings: {
+            title: "Wo bin ich?"
+        }
+    })
+    .addTo(map);
