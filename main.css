@@ -186,6 +186,7 @@ header img,
 
     .video-container {
         flex-direction: column;
+        width: 100%;
     }
 
     .highlight {
