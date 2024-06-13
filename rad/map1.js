@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         theme: "blue-theme",
         closeBtn: true,
         distanceMarkers: false,
+        collapsed: true,
     }).addTo(map1);
     controlElevation.load("data/gnadenwald.gpx");
 

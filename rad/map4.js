@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Style Elevation
     let controlElevation = L.control.elevation({
-
         time: false,
-        elevationDiv: "#profile4",
+        elevationDiv: "#profile1",
         height: 300,
         theme: "blue-theme",
         closeBtn: true,
         distanceMarkers: false,
+        collapsed: true,
     }).addTo(map4);
     controlElevation.load("data/seefeld.gpx");
 

@@ -37,11 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //Style Elevation
     let controlElevation = L.control.elevation({
         time: false,
-        elevationDiv: "#profile5",
+        elevationDiv: "#profile1",
         height: 300,
         theme: "blue-theme",
         closeBtn: true,
         distanceMarkers: false,
+        collapsed: true,
     }).addTo(map5);
     controlElevation.load("data/sellrain.gpx");
 
