@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let map2 = L.map("map2", {
         fullscreenControl: true,
+        gestureHandling: true,
     }).setView([lat2, lng2], 11);
 
     // thematische Layer

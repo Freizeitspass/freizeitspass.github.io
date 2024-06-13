@@ -6,6 +6,7 @@ let zoom1 = 9;
 document.addEventListener('DOMContentLoaded', function () {
     let map1 = L.map("map1", {
         fullscreenControl: true,
+        gestureHandling: true,
     }).setView([lat1, lng2], 11);
 
     // thematische Layer
