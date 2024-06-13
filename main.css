@@ -18,6 +18,7 @@ header>img {
     font-style: normal;
 }
 
+/* Navigationsleiste */
 nav {
     position: relative;
     margin: auto;
@@ -37,6 +38,13 @@ nav {
 
 }
 
+/* Navigationsleiste Hover Effekt */
+nav a:hover {
+    background-color: #f1f1f1;
+    padding: 12px 16px;
+}
+
+/* Allgemeines */
 main {
     max-width: 1024px;
     margin: auto;
@@ -65,6 +73,7 @@ article figure>img {
     width: 100%;
 }
 
+/* Highlights (padded boxes) */
 .highlight {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 30px;
@@ -125,11 +134,13 @@ article figure>img {
 
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 1em 2em 3em 2em;
 }
 
+/* Schatten für Bilder und Karten */
 header img,
 #map,
 #map1,
@@ -219,6 +230,7 @@ header img,
     /* Stärkerer Schatten bei Hover */
 }
 
+/* Sidebar Versuche */
 .leaflet-sidebar .leaflet-sidebar-pane {
     padding: 10px;
 }
@@ -234,6 +246,7 @@ header img,
     cursor: pointer;
 }
 
+/* Popup */
 .popup-container {
     position: absolute;
     z-index: 9999;
