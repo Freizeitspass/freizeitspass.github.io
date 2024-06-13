@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Style Höhenprofil
     let controlElevation = L.control.elevation({
-        time: false,
         elevationDiv: "#profile2",
         height: 300,
         theme: "blue-theme",
         closeBtn: true,
         distanceMarkers: false,
         collapsed: true,
+        edgeScale: true,
     }).addTo(map2);
     controlElevation.load("data/ellboegen.gpx");
 

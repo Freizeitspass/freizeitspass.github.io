@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }).addTo(map1);
 
     let controlElevation = L.control.elevation({
-        time: false,
         elevationDiv: "#profile1",
         height: 300,
         theme: "blue-theme",
