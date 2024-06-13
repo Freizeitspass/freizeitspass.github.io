@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         elevationDiv: "#profile2",
         height: 300,
         theme: "blue-theme",
-        closeBtn: true,
         distanceMarkers: false,
         collapsed: true,
         edgeScale: true,
@@ -72,15 +71,15 @@ document.addEventListener('DOMContentLoaded', function () {
         .addTo(map2);
 
     //Rainviewer Plugin
-    L.control.rainviewer({
-        position: 'bottomleft',
-        nextButtonText: '>',
-        playStopButtonText: 'Play/Stop',
-        prevButtonText: '<',
-        positionSliderLabelText: "Hour:",
-        opacitySliderLabelText: "Opacity:",
-        animationInterval: 500,
-        opacity: 0.5
-    }).addTo(map2);
+    // L.control.rainviewer({
+    //  position: 'bottomleft',
+    //nextButtonText: '>',
+    // playStopButtonText: 'Play/Stop',
+    // prevButtonText: '<',
+    //  positionSliderLabelText: "Hour:",
+    //  opacitySliderLabelText: "Opacity:",
+    //  animationInterval: 500,
+    //  opacity: 0.5
+    //}).addTo(map2);
 
 });

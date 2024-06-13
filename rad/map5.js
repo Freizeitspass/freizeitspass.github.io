@@ -37,23 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Style Elevation
     let controlElevation = L.control.elevation({
-
         elevationDiv: "#profile5",
         height: 300,
         theme: "blue-theme",
         closeBtn: true,
         distanceMarkers: false,
         collapsed: true,
+        edgeScale: true,
     }).addTo(map5);
     controlElevation.load("data/sellrain.gpx");
-
-
 
     //Maßstab 
     L.control.scale({
         imperial: false,
     }).addTo(map5);
-
 
     // MiniMap 
     new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -73,16 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .addTo(map5);
 
     //Rainviewer Plugin
-    L.control.rainviewer({
-        position: 'bottomleft',
-        nextButtonText: '>',
-        playStopButtonText: 'Play/Stop',
-        prevButtonText: '<',
-        positionSliderLabelText: "Hour:",
-        opacitySliderLabelText: "Opacity:",
-        animationInterval: 500,
-        opacity: 0.5
-    }).addTo(map5);
+    // L.control.rainviewer({
+    //      position: 'bottomleft',
+    //    nextButtonText: '>',
+    //  playStopButtonText: 'Play/Stop',
+    //  prevButtonText: '<',
+    //  positionSliderLabelText: "Hour:",
+    //  opacitySliderLabelText: "Opacity:",
+    //  animationInterval: 500,
+    //  opacity: 0.5
+    //}).addTo(map5);
 
 
 });
