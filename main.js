@@ -103,7 +103,7 @@ map.on('click', function (e) {
 var popupContent = '<div class="popup-container" id="popupContainer">' +
                    '<div class="popup">' +
                    '<span class="close" id="closeButton">&times;</span>' +
-                   '<p>Willkommen auf unserer Webseite!</p>' +
+                   '<p>Mit dem Reachability Plugin können Sie auf einer Karte Erreichbarkeitszonen darstellen.</p><p>Wählen Sie ein Fortbewegungsmittel (Auto, Fahrrad, zu Fuß) und sehen Sie,</p> <p>welche Gebiete Sie in einer bestimmten Zeitspanne (z.B. 5, 10, 15 Minuten) erreichen können.</p><p> Klicken Sie einfach auf die Karte, um die Zonen von einem bestimmten Punkt aus zu visualisieren.</p>' +
                    '</div>' +
                    '</div>';
 
