@@ -33,6 +33,8 @@ nav {
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
     font-family: "Bree Serif";
     font-size: 18px;
+    text-align: left;
+
 }
 
 main {
@@ -83,7 +85,6 @@ article figure>img {
     margin: 0 auto;
     max-width: 500px;
     text-align: center;
-    /* Text linksbündig ausrichten */
 }
 
 /*Standard Karten*/
