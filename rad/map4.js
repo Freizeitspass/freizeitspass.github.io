@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let controlElevation = L.control.elevation({
 
         time: false,
-        elevationDiv: "#profile1",
+        elevationDiv: "#profile4",
         height: 300,
         theme: "blue-theme",
         closeBtn: true,

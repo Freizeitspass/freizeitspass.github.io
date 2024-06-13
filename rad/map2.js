@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //Style Höhenprofil
     let controlElevation = L.control.elevation({
         time: false,
-        elevationDiv: "#profile1",
+        elevationDiv: "#profile2",
         height: 300,
         theme: "blue-theme",
         closeBtn: true,
