@@ -1,12 +1,12 @@
 //Map initialisieren
-let lat1 = 47.268333;
-let lng1 = 11.393333;
-let zoom1 = 9;
+let lat5 = 47.268333;
+let lng5 = 11.393333;
+let zoom5 = 9;
 
 document.addEventListener('DOMContentLoaded', function () {
-    let map1 = L.map("map1", {
+    let map5 = L.map("map5", {
         fullscreenControl: true,
-    }).setView([lat1, lng2], 11);
+    }).setView([lat5, lng5], 11);
 
     // thematische Layer
     let themaLayer = {
@@ -29,20 +29,20 @@ document.addEventListener('DOMContentLoaded', function () {
         "eGrundkarte Tirol Sommer": L.layerGroup([
             eGrundkarteTirol.sommer,
             eGrundkarteTirol.nomenklatur
-        ]).addTo(map1),
+        ]).addTo(map5),
     }, {
-        "Gnadenwald-Runde": themaLayer.route.addTo(map1)
-    }).addTo(map1);
+        "Gnadenwald-Runde": themaLayer.route.addTo(map5)
+    }).addTo(map5);
 
-    let controlElevation = L.control.elevation({}).addTo(map1);
-    controlElevation.load("data/gnadenwald.gpx");
+    let controlElevation = L.control.elevation({}).addTo(map5);
+    controlElevation.load("data/sellrain.gpx");
 
 
 
     //Maßstab 
     L.control.scale({
         imperial: false,
-    }).addTo(map1);
+    }).addTo(map5);
 
 
     // MiniMap 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
     }), {
         toggleDisplay: true,
-    }).addTo(map1);
+    }).addTo(map5);
 
     //Locate controle
     var lc = L.control
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title: "Show me where I am, yo!"
             }
         })
-        .addTo(map1);
+        .addTo(map5);
 
     //Rainviewer Plugin
     L.control.rainviewer({
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         opacitySliderLabelText: "Opacity:",
         animationInterval: 500,
         opacity: 0.5
-    }).addTo(map1);
+    }).addTo(map5);
 
 
 });
