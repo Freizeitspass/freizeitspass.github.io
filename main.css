@@ -197,3 +197,25 @@ header img,
 .dropdown:hover .dropdown-toggle {
     background-color: #3e8e41;
 }
+
+/* Button zum nach oben scrollen */
+#scrollToTopBtn {
+    display: none;
+    /* Standardmäßig ausgeblendet */
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #3e8e41;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #555;
+}
