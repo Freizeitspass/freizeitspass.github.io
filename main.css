@@ -67,6 +67,9 @@ article figure>img {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 /*Standard Karten*/
@@ -103,6 +106,9 @@ article figure>img {
 #profile5 {
     margin-top: 0.5em;
     border: 1px solid gray;
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.2);
 
 }
 
