@@ -186,23 +186,26 @@ header img,
 
     .video-container {
         flex-direction: column;
+    }
+
+    .video-container iframe {
         width: 100%;
+        height: auto;
+
+        .highlight {
+            padding: 10px;
+        }
+
     }
 
-    .highlight {
-        padding: 10px;
-    }
-
-}
-
-/* Einbindung der Videos */
-.video-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    /* Abstand zwischen den Videos */
-    margin-bottom: 20px;
-    /* Abstand zum unteren Inhalt
+    /* Einbindung der Videos */
+    .video-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        /* Abstand zwischen den Videos */
+        margin-bottom: 20px;
+        /* Abstand zum unteren Inhalt
     padding: 10px;
     /* Padding um die Videos herum 
     background-color: #baced3;
@@ -211,214 +214,214 @@ header img,
     /* Abgerundete Ecken des Containers 
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     /* Schatteneffekt für den Container */
-}
-
-.video-container iframe {
-    border: none;
-    /* Entfernt die Ränder der iframes */
-    border-radius: 10px;
-    /* Abgerundete Ecken */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Schatteneffekt */
-    transition: transform 0.3s, box-shadow 0.3s;
-    /* Transition für Hover-Effekt */
-}
-
-.video-container iframe:hover {
-    transform: scale(1.05);
-    /* Vergrößerung bei Hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Stärkerer Schatten bei Hover */
-}
-
-/* Sidebar Versuche */
-.leaflet-sidebar .leaflet-sidebar-pane {
-    padding: 10px;
-}
-
-.leaflet-sidebar .leaflet-sidebar-header {
-    background: #f7f7f7;
-    padding: 10px;
-    font-size: 18px;
-    border-bottom: 1px solid #ddd;
-}
-
-.leaflet-sidebar .leaflet-sidebar-close {
-    cursor: pointer;
-}
-
-/* Popup */
-.popup-container {
-    position: absolute;
-    z-index: 9999;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.popup {
-    color: #333;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
-
-
-/* Dropdown Menü */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropdown-toggle {
-    background-color: #f1f1f1;
-    padding: 12px 16px;
-}
-
-/* Button zum nach oben scrollen */
-#scrollToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 20px;
-    background-color: #f9f9f9;
-}
-
-#scrollToTopBtn:hover {
-    background-color: #285fd4;
-}
-
-;
-
-* {
-    box-sizing: border-box
-}
-
-/* Slideshow container */
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-    display: none;
-}
-
-/* Vor und zurück */
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-/* "Weiter" auf der rechten Seite*/
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Caption text */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-    background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {
-        opacity: .4
     }
 
-    to {
-        opacity: 1
+    .video-container iframe {
+        border: none;
+        /* Entfernt die Ränder der iframes */
+        border-radius: 10px;
+        /* Abgerundete Ecken */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Schatteneffekt */
+        transition: transform 0.3s, box-shadow 0.3s;
+        /* Transition für Hover-Effekt */
     }
-}
+
+    .video-container iframe:hover {
+        transform: scale(1.05);
+        /* Vergrößerung bei Hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        /* Stärkerer Schatten bei Hover */
+    }
+
+    /* Sidebar Versuche */
+    .leaflet-sidebar .leaflet-sidebar-pane {
+        padding: 10px;
+    }
+
+    .leaflet-sidebar .leaflet-sidebar-header {
+        background: #f7f7f7;
+        padding: 10px;
+        font-size: 18px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .leaflet-sidebar .leaflet-sidebar-close {
+        cursor: pointer;
+    }
+
+    /* Popup */
+    .popup-container {
+        position: absolute;
+        z-index: 9999;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .popup {
+        color: #333;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+
+    /* Dropdown Menü */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-toggle {
+        background-color: #f1f1f1;
+        padding: 12px 16px;
+    }
+
+    /* Button zum nach oben scrollen */
+    #scrollToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 20px;
+        background-color: #f9f9f9;
+    }
+
+    #scrollToTopBtn:hover {
+        background-color: #285fd4;
+    }
+
+    ;
+
+    * {
+        box-sizing: border-box
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+    }
+
+    /* Vor und zurück */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* "Weiter" auf der rechten Seite*/
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
