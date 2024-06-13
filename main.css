@@ -141,10 +141,8 @@ header img,
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* Für kleine Laptops */
 @media screen and (max-width: 1280px) {
-    main {
-        border: none;
-    }
 
     figure {
         margin-left: 0;
@@ -152,35 +150,36 @@ header img,
     }
 }
 
-/* Für kleine Bildschirme (Handys) */
+/* Für Handy */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        /* Elemente untereinander anordnen */
         padding: 10px;
-        /* Weniger Padding für kleinere Bildschirme */
     }
 
     .dropdown {
         position: static;
-        /* Standardposition für Dropdown-Menüs */
         display: block;
-        /* Dropdown-Inhalte immer anzeigen */
     }
 
     .dropdown-content {
         position: static;
-        /* Standardposition für Dropdown-Inhalte */
         display: block;
-        /* Dropdown-Inhalte immer anzeigen */
         box-shadow: none;
-        /* Kein Schatten für Dropdown-Inhalte */
     }
 
     .dropdown:hover .dropdown-content {
         display: block;
-        /* Dropdown-Inhalte beim Hover nicht ausblenden */
     }
+
+    .video-container {
+        flex-direction: column;
+    }
+
+    .highlight {
+        padding: 10px;
+    }
+
 }
 
 /* Einbindung der Videos */
