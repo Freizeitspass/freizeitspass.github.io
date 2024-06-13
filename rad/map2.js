@@ -35,12 +35,16 @@ document.addEventListener('DOMContentLoaded', function () {
         "Ellbögen-Runde": themaLayer.route.addTo(map2)
     }).addTo(map2);
 
-    let controlElevation = L.control.elevation({}).addTo(map2);
+    //Style Höhenprofil
+    let controlElevation = L.control.elevation({
+        time: false,
+        elevationDiv: "#profile1",
+        height: 300,
+        theme: "blue-theme",
+        closeBtn: true,
+        distanceMarkers: false,
+    }).addTo(map2);
     controlElevation.load("data/ellboegen.gpx");
-
-    //Pulldown
-    //let pulldown = document.querySelector("#pulldown");
-
 
     //Maßstab 
     L.control.scale({

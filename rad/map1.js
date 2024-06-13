@@ -34,7 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
         "Gnadenwald-Runde": themaLayer.route.addTo(map1)
     }).addTo(map1);
 
-    let controlElevation = L.control.elevation({}).addTo(map1);
+    let controlElevation = L.control.elevation({
+        time: false,
+        elevationDiv: "#profile1",
+        height: 300,
+        theme: "blue-theme",
+        closeBtn: true,
+        distanceMarkers: false,
+    }).addTo(map1);
     controlElevation.load("data/gnadenwald.gpx");
 
 

@@ -34,7 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
         "AXmer Lizum": themaLayer.route.addTo(map3)
     }).addTo(map3);
 
-    let controlElevation = L.control.elevation({}).addTo(map3);
+    //Style Elevation
+    let controlElevation = L.control.elevation({
+
+        time: false,
+        elevationDiv: "#profile1",
+        height: 300,
+        theme: "blue-theme",
+        closeBtn: true,
+        distanceMarkers: false,
+    }).addTo(map3);
     controlElevation.load("data/lizum.gpx");
 
 
