@@ -20,14 +20,13 @@ header>img {
 
 nav {
     position: relative;
-    display: block;
     margin: auto;
     margin-top: -5px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 25px;
-    display: flex;
+    display: block;
     gap: 20px;
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
@@ -150,6 +149,37 @@ header img,
     figure {
         margin-left: 0;
         width: 100%;
+    }
+}
+
+/* Für kleine Bildschirme (Handys) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        /* Elemente untereinander anordnen */
+        padding: 10px;
+        /* Weniger Padding für kleinere Bildschirme */
+    }
+
+    .dropdown {
+        position: static;
+        /* Standardposition für Dropdown-Menüs */
+        display: block;
+        /* Dropdown-Inhalte immer anzeigen */
+    }
+
+    .dropdown-content {
+        position: static;
+        /* Standardposition für Dropdown-Inhalte */
+        display: block;
+        /* Dropdown-Inhalte immer anzeigen */
+        box-shadow: none;
+        /* Kein Schatten für Dropdown-Inhalte */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        /* Dropdown-Inhalte beim Hover nicht ausblenden */
     }
 }
 
