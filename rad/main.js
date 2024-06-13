@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
 // Nach oben scrollen Button
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
