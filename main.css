@@ -186,17 +186,19 @@ header img,
 
     .video-container {
         flex-direction: column;
+        width: 100%;
     }
 
     .video-container iframe {
-        width: 100%;
-        height: auto;
-
-        .highlight {
-            padding: 10px;
-        }
-
+        width: 100% !important;
+        height: auto !important;
     }
+
+    .highlight {
+        padding: 10px;
+    }
+
+}
 }
 
 /* Einbindung der Videos */
