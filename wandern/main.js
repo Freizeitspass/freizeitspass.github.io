@@ -19,12 +19,25 @@ let eGrundkarteTirol = {
 }
 
 // Hintergrundlayer eGrundkarte Tirol
-L.control.layers({
+let baseLayers = {
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
     ]).addTo(map),
-}).addTo(map);
+};
+
+// Layers für Routen
+let karwendelLayer = L.layerGroup();
+let inntallLayer = L.layerGroup();
+
+// Overlay-Layer für Routen
+let overlayLayers = {
+    "Karwendel Route": karwendelLayer,
+    "Inntal Route": inntallLayer
+};
+
+// Layers Control hinzufügen
+L.control.layers(baseLayers, overlayLayers).addTo(map);
 
 //Maßstab 
 L.control.scale({
@@ -38,10 +51,6 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
     toggleDisplay: true,
 }).addTo(map);
 
-// Layers
-let karwendelLayer = L.layerGroup().addTo(map);
-let inntallLayer = L.layerGroup().addTo(map);
-
 // GPX loading function
 function loadGPXFile(filePath, layer, elevationControl) {
     fetch(filePath)
@@ -52,9 +61,6 @@ function loadGPXFile(filePath, layer, elevationControl) {
             new L.GPX(gpx, {
                 async: true,
                 marker_options: {
-                    startIconUrl: 'images/pin-icon-start.png',
-                    endIconUrl: 'images/pin-icon-end.png',
-                    shadowUrl: 'images/pin-shadow.png'
                 }
             }).on('loaded', function (e) {
                 map.fitBounds(e.target.getBounds());
