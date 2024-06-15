@@ -21,11 +21,10 @@
     <!-- Leaflet MiniMap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js" integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css" integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js" integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Leaflet Sidebar V2 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-sidebar-v2/3.0.0/leaflet-sidebar.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-sidebar-v2/3.0.0/leaflet-sidebar.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-sidebar-v2@3.0.0/leaflet-sidebar.min.css" />
+    <script src="https://unpkg.com/leaflet-sidebar-v2@3.0.0/leaflet-sidebar.min.js"></script>
 
     <!--Rainviewer Plugin-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css" />
@@ -40,15 +39,13 @@
     <script src="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.js"></script>
 
     <script defer src="main.js"></script>
-
 </head>
 
 <body>
     <main>
         <article>
             <header>
-                <!--Bild: https://pixabay.com/photos/sports-cycling-races-cycles-move-4663417/-->
-                <img src="bilder/header-wandern.jpeg" alt="Sonnenaufgang am Rastkogel">
+                <img src="bilder/header-wandern.jpeg" alt="Sonnenaufgang am Rastkogel (eigene Aufnahme)">
 
                 <nav>
                     FREIZEITSPASS IN INNSBRUCK:
@@ -73,9 +70,7 @@
                     <a href="https://freizeitspass.github.io/ueber" class="dropdown-toggle"> <i class="fa-solid fa-circle-info"></i>
                         Über dieses Projekt</a>
                 </nav>
-
             </header>
-
 
             <h1>Die zwei beliebtesten Weitwanderungen um Innsbruck</h1>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
@@ -94,46 +89,83 @@
             <div id="map" style="width: 100%; height: 600px;" align="middle"></div>
             <div id="elevation-div-karwendel"></div>
             <div id="elevation-div-inntal"></div>
-            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-            <script src="https://rawgit.com/MrMufflon/Leaflet.Elevation/master/dist/leaflet.elevation-0.0.4.min.js"></script>
-            <script src="data/gps-daten-karwendel-hoehenweg.gpx"></script>
-            <script src="main.js"></script>
+            <script>
+                let map = L.map('map').setView([47.268333, 11.393333], 9);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
 
-            <!-- Sidebar
-            <div id="sidebar" class="leaflet-sidebar collapsed">
-                <!-- Nav tabs 
-                <div class="leaflet-sidebar-tabs">
-                    <ul role="tablist">
-                        <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                        <li><a href="#info" role="tab"><i class="fa fa-info"></i></a></li>
-                    </ul>
-                </div>
+                L.control.fullscreen().addTo(map);
 
-                <!-- Tab panes 
-                <div class="leaflet-sidebar-content">
-                    <div class="leaflet-sidebar-pane" id="home">
-                        <h1 class="leaflet-sidebar-header">
-                            Sidebar
-                            <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
-                        </h1>
-                        <div id="sidebar-content"></div>
-                    </div>
-                    <div class="leaflet-sidebar-pane" id="info">
-                        <h1 class="leaflet-sidebar-header">
-                            Info
-                            <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
-                        </h1>
-                        <p>Informationen über die Sidebar</p>
-                    </div>
-                </div>
-            </div> -->
+                // Minimap
+                let miniMap = new L.Control.MiniMap(L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'), {
+                    toggleDisplay: true,
+                    minimized: false
+                }).addTo(map);
 
+                // Layers
+                let karwendelLayer = L.layerGroup().addTo(map);
+                let inntallLayer = L.layerGroup().addTo(map);
+
+                // GPX loading function
+                function loadGPXFile(filePath, layer, elevationControl) {
+                    fetch(filePath)
+                        .then(response => response.text())
+                        .then(data => {
+                            let parser = new DOMParser();
+                            let gpx = parser.parseFromString(data, "application/xml");
+                            new L.GPX(gpx, {
+                                async: true,
+                                marker_options: {
+                                    startIconUrl: 'images/pin-icon-start.png',
+                                    endIconUrl: 'images/pin-icon-end.png',
+                                    shadowUrl: 'images/pin-shadow.png'
+                                }
+                            }).on('loaded', function (e) {
+                                map.fitBounds(e.target.getBounds());
+                                elevationControl.load(filePath);
+                            }).addTo(layer);
+                        });
+                }
+
+                let controlElevationKarwendel = L.control.elevation({
+                    position: "bottomright",
+                    theme: "steelblue-theme",
+                    collapsed: true
+                }).addTo(map);
+
+                loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', karwendelLayer, controlElevationKarwendel);
+
+                let controlElevationInntal = L.control.elevation({
+                    position: "bottomleft",
+                    theme: "steelblue-theme",
+                    collapsed: true
+                }).addTo(map);
+
+                loadGPXFile('data/gps-daten-inntaler-hoehenweg.gpx', inntallLayer, controlElevationInntal);
+
+                // RainViewer setup
+                let rainviewer = new L.Control.Rainviewer({
+                    position: 'bottomleft',
+                    nextButtonText: '>',
+                    playStopButtonText: 'Start/Stop',
+                    prevButtonText: '<',
+                    positionSliderLabelText: "Time:",
+                    opacitySliderLabelText: "Opacity:",
+                    animationInterval: 500,
+                    opacity: 0.5
+                });
+                map.addControl(rainviewer);
+
+                // Locate Control
+                L.control.locate().addTo(map);
+            </script>
         </article>
     </main>
     <footer>
-
+        <button id="scrollToTopBtn" title="Nach oben scrollen"><i class="fa-solid fa-arrow-up"></i></button>
     </footer>
-    <button id="scrollToTopBtn" title="Nach oben scrollen"><i class="fa-solid fa-arrow-up"></i></button>
 </body>
 
 </html>
