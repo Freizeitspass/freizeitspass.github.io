@@ -1,11 +1,16 @@
 //Map initialisieren
-let lat = 47.3;
-let lng = 11.4;
+let lat = 47.268333;
+let lng = 11.393333;
 let zoom = 9;
 
 let map = L.map("map", {
     fullscreenControl: true,
-}).setView([lat, lng], zoom);
+}).setView([lat, lng], 11);
+
+// thematische Layer
+let themaLayer = {
+    route: L.featureGroup(),
+}
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -16,80 +21,48 @@ let eGrundkarteTirol = {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
         pane: "overlayPane",
     }),
-};
+}
 
 // Hintergrundlayer eGrundkarte Tirol
-let baseLayers = {
+L.control.layers({
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
-    ])
-};
-
-L.control.layers(baseLayers).addTo(map);
-
-// thematische Layer
-let themaLayer = {
-    karwendelLayer: L.featureGroup().addTo(map),
-    inntalLayer: L.featureGroup().addTo(map),
-};
-
-// Initialisierung des Leaflet-Elevation-Controls
-let controlElevationKarwendel = L.control.elevation({
-    position: "bottomright",
-    theme: "steelblue-theme",
-    collapsed: true
+    ]).addTo(map),
 }).addTo(map);
-
-let controlElevationInntal = L.control.elevation({
-    position: "bottomleft",
-    theme: "steelblue-theme",
-    collapsed: true
-}).addTo(map);
-
-// GPX loading function
-function loadGPXFile(filePath, layer, elevationControl) {
-    fetch(filePath)
-        .then(response => response.text())
-        .then(data => {
-            let parser = new DOMParser();
-            let gpx = parser.parseFromString(data, "application/xml");
-            new L.GPX(gpx, {
-                async: true,
-            }).on('loaded', function (e) {
-                map.fitBounds(e.target.getBounds());
-                let elevationData = [];
-
-                e.target.eachLayer(function (track) {
-                    if (track.getLatLngs) {
-                        track.getLatLngs().forEach(function (latlng) {
-                            elevationData.push(latlng.alt);
-                        });
-                    }
-                });
-
-                elevationControl.load(elevationData);
-            }).addTo(layer);
-        });
-}
-
-// GPX-Dateien laden und Höhenprofile anzeigen
-loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', themaLayer.karwendelLayer, controlElevationKarwendel);
-loadGPXFile('data/gps-daten-inntaler-hoehenweg.gpx', themaLayer.inntalLayer, controlElevationInntal);
 
 //Maßstab 
 L.control.scale({
     imperial: false,
 }).addTo(map);
 
+
 // MiniMap 
-new L.Control.MiniMap(
-    L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
-        attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
-    }), {
+new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
+    attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+}), {
     toggleDisplay: true,
-    zoomLevelOffset: -5
 }).addTo(map);
 
-// Console logging
-console.log("Map initialized successfully.");
+
+/*//Rainviewer Plugin
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
+
+//Locate controle
+var lc = L.control
+    .locate({
+        position: "topright",
+        strings: {
+            title: "Show me where I am, yo!"
+        }
+    })
+    .addTo(map); */
