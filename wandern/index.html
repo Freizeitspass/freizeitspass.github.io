@@ -86,78 +86,7 @@
             <div id="map" style="width: 100%; height: 600px;" align="middle"></div>
             <div id="elevation-div-karwendel"></div>
             <div id="elevation-div-inntal"></div>
-            <script>
-                let map = L.map('map').setView([47.268333, 11.393333], 9);
-                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '© OpenStreetMap'
-                }).addTo(map);
 
-                L.control.fullscreen().addTo(map);
-
-                // Minimap
-                let miniMap = new L.Control.MiniMap(L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'), {
-                    toggleDisplay: true,
-                    minimized: false
-                }).addTo(map);
-
-                // Layers
-                let karwendelLayer = L.layerGroup().addTo(map);
-                let inntallLayer = L.layerGroup().addTo(map);
-
-                // GPX loading function
-                function loadGPXFile(filePath, layer, elevationControl) {
-                    fetch(filePath)
-                        .then(response => response.text())
-                        .then(data => {
-                            let parser = new DOMParser();
-                            let gpx = parser.parseFromString(data, "application/xml");
-                            new L.GPX(gpx, {
-                                async: true,
-                                marker_options: {
-                                    startIconUrl: 'images/pin-icon-start.png',
-                                    endIconUrl: 'images/pin-icon-end.png',
-                                    shadowUrl: 'images/pin-shadow.png'
-                                }
-                            }).on('loaded', function (e) {
-                                map.fitBounds(e.target.getBounds());
-                                elevationControl.load(filePath);
-                            }).addTo(layer);
-                        });
-                }
-
-                let controlElevationKarwendel = L.control.elevation({
-                    position: "bottomright",
-                    theme: "steelblue-theme",
-                    collapsed: true
-                }).addTo(map);
-
-                loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', karwendelLayer, controlElevationKarwendel);
-
-                let controlElevationInntal = L.control.elevation({
-                    position: "bottomleft",
-                    theme: "steelblue-theme",
-                    collapsed: true
-                }).addTo(map);
-
-                loadGPXFile('data/gps-daten-inntaler-hoehenweg.gpx', inntallLayer, controlElevationInntal);
-
-                // RainViewer setup
-                let rainviewer = new L.Control.Rainviewer({
-                    position: 'bottomleft',
-                    nextButtonText: '>',
-                    playStopButtonText: 'Start/Stop',
-                    prevButtonText: '<',
-                    positionSliderLabelText: "Time:",
-                    opacitySliderLabelText: "Opacity:",
-                    animationInterval: 500,
-                    opacity: 0.5
-                });
-                map.addControl(rainviewer);
-
-                // Locate Control
-                L.control.locate().addTo(map);
-            </script>
         </article>
     </main>
     <footer>

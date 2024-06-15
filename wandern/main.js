@@ -7,11 +7,6 @@ let map = L.map("map", {
     fullscreenControl: true,
 }).setView([lat, lng], 11);
 
-// thematische Layer
-let themaLayer = {
-    route: L.featureGroup(),
-}
-
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
     sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -36,7 +31,6 @@ L.control.scale({
     imperial: false,
 }).addTo(map);
 
-
 // MiniMap 
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
     attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
@@ -44,25 +38,59 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
     toggleDisplay: true,
 }).addTo(map);
 
+// Layers
+let karwendelLayer = L.layerGroup().addTo(map);
+let inntallLayer = L.layerGroup().addTo(map);
 
-/*//Rainviewer Plugin
-L.control.rainviewer({
+// GPX loading function
+function loadGPXFile(filePath, layer, elevationControl) {
+    fetch(filePath)
+        .then(response => response.text())
+        .then(data => {
+            let parser = new DOMParser();
+            let gpx = parser.parseFromString(data, "application/xml");
+            new L.GPX(gpx, {
+                async: true,
+                marker_options: {
+                    startIconUrl: 'images/pin-icon-start.png',
+                    endIconUrl: 'images/pin-icon-end.png',
+                    shadowUrl: 'images/pin-shadow.png'
+                }
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+                elevationControl.load(filePath);
+            }).addTo(layer);
+        });
+}
+
+let controlElevationKarwendel = L.control.elevation({
+    position: "bottomright",
+    theme: "steelblue-theme",
+    collapsed: true
+}).addTo(map);
+
+loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', karwendelLayer, controlElevationKarwendel);
+
+let controlElevationInntal = L.control.elevation({
+    position: "bottomleft",
+    theme: "steelblue-theme",
+    collapsed: true
+}).addTo(map);
+
+loadGPXFile('data/gps-daten-inntaler-hoehenweg.gpx', inntallLayer, controlElevationInntal);
+
+// RainViewer setup
+let rainviewer = new L.Control.Rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
-    playStopButtonText: 'Play/Stop',
+    playStopButtonText: 'Start/Stop',
     prevButtonText: '<',
-    positionSliderLabelText: "Hour:",
+    positionSliderLabelText: "Time:",
     opacitySliderLabelText: "Opacity:",
     animationInterval: 500,
     opacity: 0.5
-}).addTo(map);
+});
+map.addControl(rainviewer);
 
-//Locate controle
-var lc = L.control
-    .locate({
-        position: "topright",
-        strings: {
-            title: "Show me where I am, yo!"
-        }
-    })
-    .addTo(map); */
+// Locate Control
+L.control.locate().addTo(map);
