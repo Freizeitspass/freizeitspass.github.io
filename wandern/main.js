@@ -39,10 +39,11 @@ L.control.layers({
     "Inntal Höhenweg": themaLayer.inntal.addTo(map)
 }).addTo(map);
 
-/* let controlElevation = L.control.elevation({}).addTo(map);
+//aus sessionnotes rauskopiert
+let controlElevation = L.control.elevation({}).addTo(map);
 controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx");
 controlElevation.load("data/gps-track-inntaler-hoehenweg.gpx")
-*/
+
 
 //ausprobieren von ChatGPT
 new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
