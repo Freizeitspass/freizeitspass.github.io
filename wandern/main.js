@@ -62,7 +62,8 @@ let controlElevationInntal = L.control.elevation({
     // time: false,
     position: "bottomleft",
     theme: "steelblue-theme",
-    collapsed: true
+    collapsed: true,
+    legend: true
 }).addTo(map);
 controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
 
@@ -70,7 +71,7 @@ controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
 let rainviewer = new L.Control.Rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
-    playStopButtonText: 'Start/Stop',
+    playStopButtonText: 'Start/Stopp',
     prevButtonText: '<',
     positionSliderLabelText: "Zeit:",
     opacitySliderLabelText: "Sichtbarkeit:",
