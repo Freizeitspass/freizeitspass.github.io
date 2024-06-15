@@ -60,6 +60,7 @@ let controlElevationKarwendel = L.control.elevation({
 controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
 
 let controlElevationInntal = L.control.elevation({
+    // time: false,
     position: "bottomleft",
     theme: "steelblue-theme",
     collapsed: true
