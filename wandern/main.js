@@ -51,39 +51,20 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
     toggleDisplay: true,
 }).addTo(map);
 
-// GPX loading function
-function loadGPXFile(filePath, layer, elevationControl) {
-    fetch(filePath)
-        .then(response => response.text())
-        .then(data => {
-            let parser = new DOMParser();
-            let gpx = parser.parseFromString(data, "application/xml");
-            new L.GPX(gpx, {
-                async: true,
-                marker_options: {
-                }
-            }).on('loaded', function (e) {
-                map.fitBounds(e.target.getBounds());
-                elevationControl.load(filePath);
-            }).addTo(layer);
-        });
-}
-
+//GPX mit Höhenprofil einbinden
 let controlElevationKarwendel = L.control.elevation({
     position: "bottomright",
     theme: "steelblue-theme",
     collapsed: true
 }).addTo(map);
-
-loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', karwendelLayer, controlElevationKarwendel);
+controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
 
 let controlElevationInntal = L.control.elevation({
     position: "bottomleft",
     theme: "steelblue-theme",
     collapsed: true
 }).addTo(map);
-
-loadGPXFile('data/gps-daten-inntaler-hoehenweg.gpx', inntallLayer, controlElevationInntal);
+controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
 
 // RainViewer setup
 let rainviewer = new L.Control.Rainviewer({
