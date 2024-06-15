@@ -11,11 +11,10 @@ let map = L.map("map", {
 let themaLayer = {
     karwendelLayer: L.featureGroup(),
     inntalLayer: L.featureGroup(),
-}
+};
+
 let karwendelLayer = L.featureGroup();
 let inntalLayer = L.featureGroup();
-
-
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -26,121 +25,58 @@ let eGrundkarteTirol = {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
         pane: "overlayPane",
     }),
-}
+};
 
 // Hintergrundlayer eGrundkarte Tirol
-L.control.layers({
+let baseLayers = {
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
-    ]).addTo(map),
-}, {
-    "Karwendel Höhenweg": themaLayer.karwendel.addTo(map),
-    "Inntal Höhenweg": themaLayer.inntal.addTo(map)
+    ])
+};
+
+L.control.layers(baseLayers, {
+    "Karwendel Höhenweg": themaLayer.karwendelLayer,
+    "Inntal Höhenweg": themaLayer.inntalLayer
 }).addTo(map);
 
-//aus sessionnotes rauskopiert
-let controlElevation = L.control.elevation({}).addTo(map);
-controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx");
-controlElevation.load("data/gps-track-inntaler-hoehenweg.gpx")
-
-
-//ausprobieren von ChatGPT
-new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
-    async: true,
-    marker_options: {
-        startIconUrl: 'images/pin-icon-start.png',
-        endIconUrl: 'images/pin-icon-end.png',
-        shadowUrl: 'images/pin-shadow.png'
-    }
-}).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-    controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
-}).addTo(karwendelLayer);
-
-new L.GPX("data/gps-track-inntaler-hoehenweg.gpx", {
-    async: true,
-    marker_options: {
-        startIconUrl: 'images/pin-icon-start.png',
-        endIconUrl: 'images/pin-icon-end.png',
-        shadowUrl: 'images/pin-shadow.png'
-    }
-}).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-    controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
-}).addTo(inntalLayer);
-
+// Initialisierung des Leaflet-Elevation-Controls
 let controlElevationKarwendel = L.control.elevation({
     position: "bottomright",
-    theme: "lime-theme",
-    detached: true,
-    elevationDiv: "#elevation-div-karwendel"
+    theme: "steelblue-theme",
+    collapsed: true
 }).addTo(map);
 
 let controlElevationInntal = L.control.elevation({
-    position: "bottomright",
+    position: "bottomleft",
     theme: "steelblue-theme",
-    detached: true,
-    elevationDiv: "#elevation-div-inntal"
+    collapsed: true
 }).addTo(map);
 
-// Laden der GPX-Daten und Hinzufügen zu den entsprechenden Layern
-new L.GPX("data/gps-daten-karwendel-hoehenweg.gpx", {
-    async: true,
-    marker_options: {
-        startIconUrl: 'images/pin-icon-start.png',
-        endIconUrl: 'images/pin-icon-end.png',
-        shadowUrl: 'images/pin-shadow.png'
-    }
-}).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-    controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
-});
+// GPX loading function
+function loadGPXFile(filePath, layer, elevationControl) {
+    fetch(filePath)
+        .then(response => response.text())
+        .then(data => {
+            let parser = new DOMParser();
+            let gpx = parser.parseFromString(data, "application/xml");
+            new L.GPX(gpx, {
+                async: true,
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+                elevationControl.load(filePath); // Hier die Höhendaten laden
+            }).addTo(layer);
+        });
+}
 
-new L.GPX("data/gps-track-inntaler-hoehenweg.gpx", {
-    async: true,
-    marker_options: {
-        startIconUrl: 'images/pin-icon-start.png',
-        endIconUrl: 'images/pin-icon-end.png',
-        shadowUrl: 'images/pin-shadow.png'
-    }
-}).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-    controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
-});
-
+// GPX-Dateien laden und Höhenprofile anzeigen
+loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', karwendelLayer, controlElevationKarwendel);
+loadGPXFile('data/gps-daten-inntaler-hoehenweg.gpx', inntalLayer, controlElevationInntal);
 
 //Maßstab 
 L.control.scale({
     imperial: false,
 }).addTo(map);
-
-//Höhenprofil und gpx
-
-
-/*
-//Pulldown (noch nur kopiert und nicht verändert von biketirol)
-let pulldown = document.querySelector("#pulldown");
-// console.log("Pulldown: ", pulldown);
-
-for (let etappe of ETAPPEN) {
-    let status = "";
-    if (etappe.nr == 19) {
-        status = " selected ";
-    }
-    pulldown.innerHTML += `<option ${status} value="${etappe.user}">Etappe ${etappe.nr}: ${etappe.titel}</option>`;
-};
-
-pulldown.onchange = function (evt) {
-    // console.log("Pulldown change event: ", evt);
-    // console.log("User: ", evt.target.value);
-    let username = evt.target.value;
-    let url = `https://${username}.github.io/biketirol`;
-    // console.log("Url: ", url);
-    // console.log(window.location);
-    window.location.href = url;
-}
-*/
 
 // MiniMap 
 new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -148,37 +84,6 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
 }), {
     toggleDisplay: true,
 }).addTo(map);
-
-/*
-// Initialize the sidebar
-var sidebar = L.control.sidebar({
-    container: 'sidebar',
-    closeButton: true,
-    position: 'left'
-}).addTo(map);
-
-// Example marker with popup content
-var marker = L.marker([47.2682, 11.3928]).addTo(map);
-marker.on('click', function () {
-    sidebar.open('home');
-    document.getElementById('sidebar-content').innerHTML = '<h2>Rennradstrecke</h2><p>Dies ist eine Beschreibung der Rennradstrecke.</p>';
-});
-
-// Open sidebar on marker click
-marker.bindPopup("Klicken Sie hier für mehr Informationen").on('click', function () {
-    sidebar.open('home');
-});
-
-
-
-*/
-
-let overlayLayers = {
-    "Karwendel Hoehenweg": karwendelLayer,
-    "Inntal Hoehenweg": inntalLayer
-};
-L.control.layers(null, overlayLayers).addTo(map);
-
 
 //Rainviewer Plugin
 L.control.rainviewer({
