@@ -1,6 +1,6 @@
 //Map initialisieren
-let lat = 47.268333;
-let lng = 11.393333;
+let lat = 47.3;
+let lng = 11.4;
 let zoom = 9;
 
 let map = L.map("map", {
@@ -16,14 +16,14 @@ let eGrundkarteTirol = {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
         pane: "overlayPane",
     }),
-}
+};
 
 // Hintergrundlayer eGrundkarte Tirol
 let baseLayers = {
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
-    ]).addTo(map)
+    ])
 };
 
 L.control.layers(baseLayers).addTo(map);
@@ -58,23 +58,20 @@ function loadGPXFile(filePath, layer, elevationControl) {
                 async: true,
             }).on('loaded', function (e) {
                 map.fitBounds(e.target.getBounds());
-                let elevationData = []; // Array für die Höhendaten
+                let elevationData = [];
 
-                // Extrahiere Höhendaten aus der GPX-Datei
                 e.target.eachLayer(function (track) {
                     if (track.getLatLngs) {
                         track.getLatLngs().forEach(function (latlng) {
-                            elevationData.push(latlng.alt); // Höhendaten zum Array hinzufügen
+                            elevationData.push(latlng.alt);
                         });
                     }
                 });
 
-                // Hier die Höhendaten in das elevationControl laden
                 elevationControl.load(elevationData);
             }).addTo(layer);
         });
 }
-
 
 // GPX-Dateien laden und Höhenprofile anzeigen
 loadGPXFile('data/gps-daten-karwendel-hoehenweg.gpx', themaLayer.karwendelLayer, controlElevationKarwendel);
@@ -92,5 +89,7 @@ new L.Control.MiniMap(
     }), {
     toggleDisplay: true,
     zoomLevelOffset: -5
-}
-).addTo(map);
+}).addTo(map);
+
+// Console logging
+console.log("Map initialized successfully.");
