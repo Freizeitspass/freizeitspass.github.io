@@ -37,8 +37,7 @@ let overlayLayers = {
 };
 
 // Layers Control hinzufügen
-L.control.layers(baseLayers, overlayLayers).addTo(map);
-
+let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map);
 //Maßstab 
 L.control.scale({
     imperial: false,
@@ -73,8 +72,8 @@ let rainviewer = new L.Control.Rainviewer({
     nextButtonText: '>',
     playStopButtonText: 'Start/Stop',
     prevButtonText: '<',
-    positionSliderLabelText: "Time:",
-    opacitySliderLabelText: "Opacity:",
+    positionSliderLabelText: "Zeit:",
+    opacitySliderLabelText: "Sichtbarkeit:",
     animationInterval: 500,
     opacity: 0.5
 });
