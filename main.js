@@ -138,13 +138,16 @@ function positionPopup() {
 }; 
 
 // Initial Popup positionieren
-positionPopup();
+map.on('load', function() {
+    popupContainer.style.display = 'block';
+    positionPopup();
+});
 
 //Slideshow
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Next/previous controls
+// Vorhäriges/nächstes Foto
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
