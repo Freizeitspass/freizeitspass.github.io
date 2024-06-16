@@ -428,3 +428,18 @@ header img,
         opacity: 1
     }
 }
+
+#popupContainer {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000; /* Ensure the popup is above other elements */
+    display: inside; /* Initially hide the popup */
+}
+
+#map {
+    position: relative; /* Make the map container relative */
+    width: 100%;
+    height: 500px;
+}
