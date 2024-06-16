@@ -155,7 +155,7 @@ function plusSlides(n) {
 // Thumbnail image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
-}
+};
 
 function showSlides(n) {
   let i;
@@ -171,4 +171,5 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-}
+};
+
