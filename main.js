@@ -138,13 +138,16 @@ function positionPopup() {
 }; 
 
 // Initial Popup positionieren
-positionPopup();
+map.on('load', function() {
+    popupContainer.style.display = 'block';
+    positionPopup();
+});
 
 //Slideshow
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Next/previous controls
+// Vorhäriges/nächstes Foto
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
@@ -152,7 +155,7 @@ function plusSlides(n) {
 // Thumbnail image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
-}
+};
 
 function showSlides(n) {
   let i;
@@ -168,4 +171,26 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
+};
+
+// Nach oben scrollen Button
+let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
 }
+
+scrollToTopBtn.addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
