@@ -14,6 +14,7 @@ let map = L.map("map", {
     fullscreenControl: true,
 }).setView([lat, lng], 11);
 
+
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
     sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -26,12 +27,13 @@ let eGrundkarteTirol = {
 }
 
 // Hintergrundlayer eGrundkarte Tirol
-L.control.layers({
+let baseLayers = {
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
     ]).addTo(map),
-}).addTo(map);
+};
+
 
 //Maßstab hinzugefügt
 L.control.scale({
@@ -39,7 +41,7 @@ L.control.scale({
 }).addTo(map);
 
 //Minimap hinzugefügt
-new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
+new L.control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
     attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
 }), {
     toggleDisplay: true,
@@ -194,3 +196,4 @@ scrollToTopBtn.addEventListener('click', function () {
         behavior: 'smooth'
     });
 });
+
