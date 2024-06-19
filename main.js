@@ -34,40 +34,41 @@ let baseLayers = {
     ]).addTo(map),
 };
 
-
+//Layercontrol hinzufügen
+L.control.layers(baseLayers).addTo(map); 
+   
 //Maßstab hinzugefügt
 L.control.scale({
     imperial: false,
 }).addTo(map);
 
-//Minimap hinzugefügt
-new L.control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
+// MiniMap 
+new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
     attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
 }), {
     toggleDisplay: true,
 }).addTo(map);
 
-//Rainviewer Plugin
-L.control.rainviewer({
+// RainViewer Plugin
+let rainviewer = new L.Control.Rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
-    playStopButtonText: 'Play/Stop',
+    playStopButtonText: 'Start/Stopp',
     prevButtonText: '<',
-    positionSliderLabelText: "Hour:",
-    opacitySliderLabelText: "Opacity:",
+    positionSliderLabelText: "Zeit:",
+    opacitySliderLabelText: "Sichtbarkeit:",
     animationInterval: 500,
     opacity: 0.5
-}).addTo(map);
+});
+map.addControl(rainviewer);
 
 //Locate control
-var lc = L.control
-    .locate({
-        position: "topright",
-        strings: {
-            title: "Wo bin ich?"
-        }
-    })
-    .addTo(map);
+var lc = L.control.locate({
+    position: "topright",
+    strings: {
+        title: "Wo bin ich?"
+    }
+}).addTo(map);
 
 //Reachability
 var reachability = L.control.reachability({
@@ -83,7 +84,7 @@ var reachability = L.control.reachability({
     travelModeButton3Content: '',
     travelModeButton3StyleClass: 'fa fa-person-walking',
     travelModeButton4Content: '',
-    travelModeButton4StyleClass: 'fa fa-wheelchair', 
+    travelModeButton4StyleClass: 'fa fa-wheelchair',
     drawButtonContent: '',
     drawButtonStyleClass: 'fa fa-pencil',
     deleteButtonContent: '',
@@ -91,7 +92,7 @@ var reachability = L.control.reachability({
     distanceButtonContent: '',
     distanceButtonStyleClass: 'fa fa-ruler-horizontal',
     timeButtonContent: '',
-    timeButtonStyleClass: 'fa fa-clock', 
+    timeButtonStyleClass: 'fa fa-clock',
 }).addTo(map);
 
 map.on('click', function (e) {
@@ -103,11 +104,11 @@ map.on('click', function (e) {
 
 // HTML für das Popup-Fenster erstellen
 var popupContent = '<div class="popup-container" id="popupContainer">' +
-                   '<div class="popup">' +
-                   '<span class="close" id="closeButton">&times;</span>' +
-                   '<p>Mit dem Reachability Plugin können Sie auf einer Karte Erreichbarkeitszonen darstellen.</p><p>Wählen Sie ein Fortbewegungsmittel (Auto, Fahrrad, zu Fuß) und sehen Sie,</p> <p>welche Gebiete Sie in einer bestimmten Zeitspanne (z.B. 5, 10, 15 Minuten) erreichen können.</p><p> Klicken Sie einfach auf die Karte, um die Zonen von einem bestimmten Punkt aus zu visualisieren.</p>' +
-                   '</div>' +
-                   '</div>';
+    '<div class="popup">' +
+    '<span class="close" id="closeButton">&times;</span>' +
+    '<p>Mit dem Reachability Plugin können Sie auf einer Karte Erreichbarkeitszonen darstellen.</p><p>Wählen Sie ein Fortbewegungsmittel (Auto, Fahrrad, zu Fuß) und sehen Sie,</p> <p>welche Gebiete Sie in einer bestimmten Zeitspanne (z.B. 5, 10, 15 Minuten) erreichen können.</p><p> Klicken Sie einfach auf die Karte, um die Zonen von einem bestimmten Punkt aus zu visualisieren.</p>' +
+    '</div>' +
+    '</div>';
 
 // HTML zum Body-Element hinzufügen
 document.body.insertAdjacentHTML('beforeend', popupContent);
@@ -117,7 +118,7 @@ var popupContainer = document.getElementById('popupContainer');
 var closeButton = document.getElementById('closeButton');
 
 // Event-Listener für das Schließen des Popups hinzufügen
-closeButton.addEventListener('click', function() {
+closeButton.addEventListener('click', function () {
     popupContainer.style.display = 'none';
 });
 
@@ -137,10 +138,10 @@ function positionPopup() {
 
     popupContainer.style.top = popupTop + 'px';
     popupContainer.style.left = popupLeft + 'px';
-}; 
+};
 
 // Initial Popup positionieren
-map.on('load', function() {
+map.on('load', function () {
     popupContainer.style.display = 'block';
     positionPopup();
 });
@@ -151,28 +152,28 @@ showSlides(slideIndex);
 
 // Vorhäriges/nächstes Foto
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides(slideIndex += n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides(slideIndex = n);
 };
 
 function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 };
 
 // Nach oben scrollen Button
@@ -196,4 +197,5 @@ scrollToTopBtn.addEventListener('click', function () {
         behavior: 'smooth'
     });
 });
+
 
