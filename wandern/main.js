@@ -1,11 +1,12 @@
 //Map initialisieren
-let lat = 47.268333;
-let lng = 11.393333;
-let zoom = 9;
+let lat = 47.0;
+let lng = 11.50;
+let zoom = 1;
 
 let map = L.map("map", {
     fullscreenControl: true,
-}).setView([lat, lng], 11);
+    gestureHandling: false,
+}).setView([lat, lng], 1);
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
