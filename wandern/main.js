@@ -127,7 +127,7 @@ scrollToTopBtn.addEventListener('click', function () {
     });
 });
 
-
+/* Diese Anleitung: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow_multiple
 //Slideshow
 let slideIndex = [1, 1];
 let slideID = ["slides-karwendel", "slides-inntal"]
@@ -153,4 +153,42 @@ function showSlides(n, no) {
         x[i].style.display = "none";
     }
     x[slideIndex[no] - 1].style.display = "block";
-} 
+} */
+
+//neuer Versuch mit dieser Anleitung: https://stackoverflow.com/questions/43299759/how-do-i-make-multiple-slideshows-in-the-same-html-document
+
+var slideskarwendel = document.getElementById("slideskarwendel");
+slideskarwendel.currentSlideIndex = 1;
+showSlides(slideskarwendel.currentSlideIndex, slideskarwendel);
+
+var slidesinntal = document.getElementById("slidesinntal");
+slidesinntal.currentSlideIndex = 1;
+showSlides(slidesinntal.currentSlideIndex, slidesinntal);
+
+
+function plusSlides(n, slideshow) {
+    showSlides(slideshow.currentSlideIndex += n, slideshow);
+}
+
+function currentSlide(n, slideshow) {
+    showSlides(slideshow.currentSlideIndex = n, slideshow);
+}
+
+function showSlides(n, slideshow) {
+
+
+
+    var i;
+    var slides = slideshow.getElementsByClassName("mySlides");
+    var dots = slideshow.getElementsByClassName("dot");
+    if (n > slides.length) { slideshow.currentSlideIndex = 1 }
+    if (n < 1) { slideshow.currentSlideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideshow.currentSlideIndex - 1].style.display = "block";
+    dots[slideshow.currentSlideIndex - 1].className += " active";
+}

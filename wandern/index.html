@@ -126,52 +126,53 @@
                 </p>
 
                 <!-- Slideshow für Karwendel Weg -->
-                <div class="slideshow-container">
+                <div id="slideskarwendel" class="slideshow-container">
 
                     <!-- Bilder mit Nummer und Text -->
-                    <div class="slides-karwendel fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
                         <img src="bilder/huette-0.jpg" style="width:100%">
                         <div class="text">Nördlinger Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-karwendel fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">2 / 5</div>
                         <img src="bilder/huette-1.jpeg" style="width:100%">
                         <div class="text">Solsteinhaus <a href="https://www.solsteinhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-karwendel fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">3 / 5</div>
                         <img src="bilder/huette-2.jpeg" style="width:100%">
                         <div class="text">Pfeishütte <a href="https://www.alpenverein.at/pfeishuette/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-karwendel fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">4 / 5</div>
                         <img src="bilder/huette-3.jpeg" style="width:100%">
                         <div class="text">Bettelwurfhütte <a href="https://www.bettelwurfhuette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-karwendel fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">5 / 5</div>
                         <img src="bilder/huette-4.jpeg" style="width:100%">
                         <div class="text">Hellerangerhaus <a href="https://www.hallerangerhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
                     <!-- Vorheriges/nächstes Foto -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1, slideskarwendel)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, slideskarwendel)">&#10095;</a>
+
                 </div>
                 <br>
 
                 <!-- Punkt unten zur Angabe welches Foto es ist -->
                 <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(1, slideskarwendel)"></span>
+                    <span class="dot" onclick="currentSlide(2, slideskarwendel)"></span>
+                    <span class="dot" onclick="currentSlide(3, slideskarwendel)"></span>
+                    <span class="dot" onclick="currentSlide(4, slideskarwendel)"></span>
+                    <span class="dot" onclick="currentSlide(5, slideskarwendel)"></span>
                 </div>
             </div>
 
@@ -209,52 +210,52 @@
                 <p> Vor dem Abstieg ins Tal lohnt sich ein Abstecher zur sehenswerten Gipfelkapelle am Kellerjoch (2.344 Meter) mit traumhafter Aussicht aufs Karwendelgebirge. Auf demselben Steig zurück zur Hütte, dann weiter über den Jägersteig zum Hoch- und Niederleger der Naunzalm. Weiter über den Jägersteig und anschließend über den „Alten Kellerjochweg“ Nr. 312 nach Hochpillberg, Bergstation Grafenast (1.347 Meter) und nach Schwaz.</p>
 
                 <!-- Slideshow für Inntal Weg-->
-                <div class="slideshow-container">
+                <div id="slidesinntal" class="slideshow-container">
 
                     <!-- Bilder mit Nummer und Text -->
-                    <div class="slides-inntal fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
                         <img src="bilder/huette-7.jpeg" style="width:100%">
                         <div class="text">Glungezer Hütte <a href="https://www.glungezer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-inntal fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">2 / 5</div>
                         <img src="bilder/huette-6.jpeg" style="width:100%">
                         <div class="text">Lizumer Hütte <a href="https://www.lizumer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-inntal fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">3 / 5</div>
                         <img src="bilder/huette-8.jpeg" style="width:100%">
                         <div class="text">Weidener Hütte <a href="https://www.weidener-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-inntal fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">4 / 5</div>
                         <img src="bilder/huette-9.jpeg" style="width:100%">
                         <div class="text">Rastkogelhütte <a href="http://www.rastkogelhuette.de"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
-                    <div class="slides-inntal fade">
+                    <div class="mySlides fade">
                         <div class="numbertext">5 / 5</div>
                         <img src="bilder/huette-10.jpeg" style="width:100%">
                         <div class="text">Kellerjochhütte <a href="https://www.kellerjochhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
                     <!-- Vorheriges/nächstes Foto -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1, slidesinntal)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, slidesinntal)">&#10095;</a>
                 </div>
                 <br>
 
                 <!-- Punkt unten zur Angabe welches Foto es ist -->
                 <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(1, slidesinntal)"></span>
+                    <span class="dot" onclick="currentSlide(2, slidesinntal)"></span>
+                    <span class="dot" onclick="currentSlide(3, slidesinntal)"></span>
+                    <span class="dot" onclick="currentSlide(4, slidesinntal)"></span>
+                    <span class="dot" onclick="currentSlide(5, slidesinntal)"></span>
                 </div>
 
         </article>
