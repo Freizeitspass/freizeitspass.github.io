@@ -38,7 +38,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--Rainviewer Plugin-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css"/>
     <script src="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js"></script>
 
     <!--Locate Plugin-->
@@ -53,7 +53,8 @@
     <!--Reachability-->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.1/leaflet.reachability.css" />
-    <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.1/leaflet.reachability.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.1/leaflet.reachability.js"></script>
 
     <script defer src="main.js"></script>
 </head>
@@ -64,7 +65,7 @@
             <header>
 
                 <!--Bild: https://pixabay.com/fr/photos/innsbruck-tyrol-lautriche-4761198-->
-                <img src="bilder/header.png" alt="farbige Häuser entlang des Inns in Innsbruck">
+                <img src="bilder/header1.jpg" alt="farbige Häuser entlang des Inns in Innsbruck">
 
             </header>
 
@@ -74,15 +75,39 @@
                     Startseite</a>
                 <a href="https://freizeitspass.github.io/wandern"> <i class="fa-solid fa-person-hiking"></i>
                     Wanderwege</a>
-                <a href="https://freizeitspass.github.io/rad"> <i class="fa-solid fa-person-biking"></i>
-                    Rennradstrecken</a>
-                <a href="https://freizeitspass.github.io/ueber"> <i class="fa-solid fa-phone"></i>
-                    Impressum/Kontakt</a>
+                <div class="dropdown">
+                    <a href="https://freizeitspass.github.io/rad" class="dropdown-toggle"><i
+                            class="fa-solid fa-person-biking"></i> Rennradstrecken</a>
+                    <div class="dropdown-content">
+                        <a href="https://freizeitspass.github.io/rad#ueberblick">Überblick</a>
+                        <a href="https://freizeitspass.github.io/rad#ellboegen">Ellbögen
+                            Runde</a>
+                        <a href="https://freizeitspass.github.io/rad#gnadenwald">Gnadenwald
+                            Runde</a>
+                        <a href="https://freizeitspass.github.io/rad#lizum">Axamer Lizum</a>
+                        <a href="https://freizeitspass.github.io/rad#seefeld">Innsbruck -
+                            Seefeld</a>
+                        <a href="https://freizeitspass.github.io/rad#sellrain">Sellrain
+                            Runde</a>
+                    </div>
+                </div>
+                <a href="https://freizeitspass.github.io/ueber" class="dropdown-toggle"> <i
+                        class="fa-solid fa-circle-info"></i>
+                    Über dieses Projekt</a>
             </nav>
 
+            <div class="highlight">
             <h2>Entdecken Sie die Vielfalt der Freizeitmöglichkeiten in der Region Innsbruck</h2>
-            <em><p>Erleben Sie die vielfältigen Freizeitmöglichkeiten in und um Innsbruck. Egal, ob Sie ein begeisterter Rennradfahrer sind oder gerne auf Wanderwegen unterwegs sind, hier finden Sie alles, was Sie brauchen, um Ihre nächste Outdoor-Aktivität zu planen.</em></p>
-            <em><p>Tauchen Sie ein in die Freizeitwelt rund um Innsbruck und entdecken Sie die besten Wege, die Region zu erkunden. Mit interaktiven Karten, detaillierten Routenbeschreibungen und praktischen Wetterinformationen sind Sie bestens gerüstet für Ihr nächstes Abenteuer.</em></p>
+            <em>
+                <p>Erleben Sie die vielfältigen Freizeitmöglichkeiten in und um Innsbruck. Egal, ob Sie ein begeisterter
+                    Rennradfahrer sind oder gerne auf Wanderwegen unterwegs sind, hier finden Sie alles, was Sie
+                    brauchen, um Ihre nächste Outdoor-Aktivität zu planen.
+            </em></p>
+            <em>
+                <p>Tauchen Sie ein in die Freizeitwelt rund um Innsbruck und entdecken Sie die besten Wege, die Region
+                    zu erkunden. Mit interaktiven Karten, detaillierten Routenbeschreibungen und praktischen
+                    Wetterinformationen sind Sie bestens gerüstet für Ihr nächstes Abenteuer.
+            </em></p>
             <div class="video-container">
                 <iframe width="450" height="300" src="https://www.youtube.com/embed/tDv3ENO2Y9Q"
                     allowfullscreen></iframe>
@@ -98,46 +123,57 @@
 
             <p><em>Stadt und 40 Orte: der Gipfel der Urlaubsvielfalt</em></p>
             <p>Alpin und charmant dörflich. Mitten in der Natur und doch nah am bunten Treiben der Stadt. Innsbruck ist
-                das urbane Zentrum, hier finden Sie Sehenswürdigkeiten, eine vielfältige Restaurantszene und Events. In der
+                das urbane Zentrum, hier finden Sie Sehenswürdigkeiten, eine vielfältige Restaurantszene und Events. In
+                der
                 Umgebung bieten kleinere und größere Orte Freizeitspaß in Hülle und Fülle. Ob zum Sightseeing, Wandern,
                 Skifahren, Biken, Klettern – die Region Innsbruck bietet, was das Herz begehrt.</p>
+            </div>      
+        
+            <div class="highlight">
+            <!-- Slideshow-->
+            <div class="slideshow-container">
 
-<!-- Slideshow-->
-<div class="slideshow-container">
+                <!-- Bilder mit Nummer und Text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="bilder/picture1.jpg" style="width:100%">
+                    <div class="text">Goldenes Dachl in der Altstadt von Innsbruck</div>
+                </div>
 
-    <!-- Bilder mit Nummer und Text -->
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="bilder/picture1.jpg" style="width:100%">
-      <div class="text">Goldenes Dachl in der Altstadt von Innsbruck</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="bilder/IMG_3158.jpg" style="width:100%">
-      <div class="text">Innsbruck bei Nacht</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="bilder/picture3.jpg" style="width:100%">
-      <div class="text">Steinbock im Alpenzoo</div>
-    </div>
-  
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-  
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="bilder/picture2.jpg" style="width:100%">
+                    <div class="text">Innsbruck bei Nacht</div>
+                </div>
 
-            <p>Die Region ist die Symbiose aus Stadt und Land! Denn: Die Stadt profitiert vom vielfältigen Sportangebot und
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="bilder/picture3.jpg" style="width:100%">
+                    <div class="text">Steinbock im Alpenzoo</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="bilder/picture4.jpg" style="width: 100%;">
+                    <div class="text">Gondel hoch zur Nordkette</div>
+                </div>
+
+                <!-- Vorhäriges/nächstes Foto -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <!-- Punkt unten zur Angabe welches Foto es ist -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+
+            <p>Die Region ist die Symbiose aus Stadt und Land! Denn: Die Stadt profitiert vom vielfältigen Sportangebot
+                und
                 lebendigem Brauchtum in den Orten ringsum. Die Orte profitieren wiederum von Innsbrucks urbanem Flair.
                 Auch
                 als Gast ländlicher Unterkünfte kommen Sie in den Genuss städtischen Lebens: von Theater bis Restaurant,
@@ -145,11 +181,20 @@
                 Event bis Shoppingtour. Sie müssen sich nicht fürs Landleben oder Stadturlaub entscheiden. In der Region
                 Innsbruck ist beides möglich.</p>
             <p><a href="https://www.innsbruck.info/destination/orte.html" target="_blank">Quelle: Innsbruck info</a></p>
+        </div>
 
+        <div class="highlight">
             <h2>Übersichtskarte</h2>
             <div id="map" style="width: 90%;height: 600px;"></div>
+        </div>
         </article>
     </main>
+    <div class="highlight">
+    <footer>
+        <a href="https://www.tirol.at/orte/a-innsbruck/ausflugsziele?listId=58b70e71bedbb3a49100dc948c46bb7f" target="_blank">Interesse geweckt? Dann finden Sie hier noch zusätliche Infos zur Hauptstadt Tirols</a>
+    </footer>
+</div>
+    <button id="scrollToTopBtn" title="Nach oben scrollen"><i class="fa-solid fa-arrow-up"></i></button>
 </body>
 
 </html>

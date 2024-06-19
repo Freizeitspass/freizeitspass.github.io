@@ -383,8 +383,29 @@ header img,
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
-    width: 100%;
+    width: calc(100% - 50px);
+    left: 20px;
+    /* Fügt Abstand von der linken Seite hinzu */
+    right: 40px;
+    /* Fügt Abstand von der rechten Seite hinzu */
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Halbtransparenter Hintergrund */
+    border-radius: 5px;
+    /* Abgerundete Ecken */
+    font-family: Roboto
+}
+
+.text a {
+    color: #f2f2f2;
+    /* Linkfarbe weiß */
+    text-decoration: underline;
+    /* Unterstrichener Link */
+}
+
+.text a:hover {
+    color: #9b95f1;
+    /* Linkfarbe beim Hover weiß */
 }
 
 /* Number text (1/3 etc) */
@@ -394,6 +415,7 @@ header img,
     padding: 8px 12px;
     position: absolute;
     top: 0;
+    font-family: Roboto
 }
 
 /* The dots/bullets/indicators */
@@ -427,4 +449,22 @@ header img,
     to {
         opacity: 1
     }
+}
+
+#popupContainer {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    /* Ensure the popup is above other elements */
+    display: inside;
+    /* Initially hide the popup */
+}
+
+#map {
+    position: relative;
+    /* Make the map container relative */
+    width: 100%;
+    height: 500px;
 }
