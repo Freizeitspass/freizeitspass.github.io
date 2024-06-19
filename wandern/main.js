@@ -8,6 +8,16 @@ let map = L.map("map", {
     gestureHandling: false,
 }).setView([lat, lng], 0);
 
+// Thema-Layer für Routen
+let themaLayer = {
+    "Karwendel Route": karwendelLayer,
+    "Inntal Route": inntallLayer
+};
+
+// Layers für Routen
+let karwendelLayer = L.layerGroup();
+let inntallLayer = L.layerGroup();
+
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
     sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -27,15 +37,8 @@ let baseLayers = {
     ]).addTo(map),
 };
 
-// Layers für Routen
-let karwendelLayer = L.layerGroup();
-let inntallLayer = L.layerGroup();
 
-// Thema-Layer für Routen
-let themaLayer = {
-    "Karwendel Route": karwendelLayer,
-    "Inntal Route": inntallLayer
-};
+
 
 // Layers Control hinzufügen
 let layerControl = L.control.layers(baseLayers, themaLayer).addTo(map);
