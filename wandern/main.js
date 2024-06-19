@@ -8,16 +8,6 @@ let map = L.map("map", {
     gestureHandling: false,
 }).setView([lat, lng], 0);
 
-// Thema-Layer für Routen
-let themaLayer = {
-    "Karwendel Route": karwendelLayer,
-    "Inntal Route": inntallLayer
-};
-
-// Layers für Routen
-let karwendelLayer = L.layerGroup();
-let inntallLayer = L.layerGroup();
-
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
     sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
@@ -37,8 +27,15 @@ let baseLayers = {
     ]).addTo(map),
 };
 
+// Layers für Routen
+let karwendelLayer = L.layerGroup();
+let inntallLayer = L.layerGroup();
 
-
+// Thema-Layer für Routen
+let themaLayer = {
+    "Karwendel Route": karwendelLayer,
+    "Inntal Route": inntallLayer
+};
 
 // Layers Control hinzufügen
 let layerControl = L.control.layers(baseLayers, themaLayer).addTo(map);
@@ -104,6 +101,7 @@ festival.on("click", function (evt) {
 });
 */
 
+
 // Locate Control
 L.control.locate().addTo(map);
 
@@ -131,12 +129,14 @@ scrollToTopBtn.addEventListener('click', function () {
 
 
 //Slideshow
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = [1, 1];
+let slideID = ["slides-karwendel", "slides-inntal"]
+showSlides(1, 0);
+showSlides(1, 1);
 
 // Vorheriges/nächstes Foto
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+function plusSlides(n, no) {
+    showSlides(slideIndex[no] += n, no);
 }
 
 // Thumbnail image controls
@@ -144,18 +144,13 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 };
 
-function showSlides(n) {
+function showSlides(n, no) {
     let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    let x = document.getElementsByClassName(slideID[no]);
+    if (n > x.length) { slideIndex[no] = 1 }
+    if (n < 1) { slideIndex[no] = x.length }
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-};
+    x[slideIndex[no] - 1].style.display = "block";
+} 
