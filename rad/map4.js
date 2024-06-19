@@ -1,13 +1,13 @@
 //Map initialisieren
 let lat4 = 47.268333;
 let lng4 = 11.393333;
-let zoom4 = 9;
+let zoom4 = 1;
 
 document.addEventListener('DOMContentLoaded', function () {
     let map4 = L.map("map4", {
         fullscreenControl: true,
         gestureHandling: true,
-    }).setView([lat4, lng4], 11);
+    }).setView([lat4, lng4], zoom4);
 
     // thematische Layer
     let themaLayer = {
@@ -31,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             eGrundkarteTirol.sommer,
             eGrundkarteTirol.nomenklatur
         ]).addTo(map4),
-    }, {
-        "Gnadenwald-Runde": themaLayer.route.addTo(map4)
-    }).addTo(map4);
+    },).addTo(map4);
 
     //Style Elevation
     let controlElevation = L.control.elevation({
@@ -68,18 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .addTo(map4);
-
-    //Rainviewer Plugin
-    //  L.control.rainviewer({
-    //      position: 'bottomleft',
-    //    nextButtonText: '>',
-    //  playStopButtonText: 'Play/Stop',
-    // prevButtonText: '<',
-    // positionSliderLabelText: "Hour:",
-    // opacitySliderLabelText: "Opacity:",
-    // animationInterval: 500,
-    //  opacity: 0.5
-    //}).addTo(map4);
 
 
 });
