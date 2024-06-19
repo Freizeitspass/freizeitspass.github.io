@@ -1,5 +1,5 @@
 //Map initialisieren
-let lat = 47.25;
+let lat = 47.0;
 let lng = 11.50;
 let zoom = 1;
 
