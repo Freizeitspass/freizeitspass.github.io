@@ -1,7 +1,7 @@
 //Map initialisieren
 let lat4 = 47.268333;
 let lng4 = 11.393333;
-let zoom4 = 20;
+let zoom4 = 9;
 
 let map4 = L.map("map4", {
     fullscreenControl: true,
