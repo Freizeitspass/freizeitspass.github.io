@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freizeitspass</title>
+    <title>Freizeitspass Wandern</title>
     <link rel="stylesheet" href="../main.css">
 
     <!-- Font Awesome -->
@@ -21,10 +21,6 @@
     <!-- Leaflet MiniMap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js" integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css" integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!--Rainviewer Plugin-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css" />
-    <script src="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js"></script>
 
     <!--Locate Plugin-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.81.1/L.Control.Locate.min.js" integrity="sha512-s/EGgrVhzEldZLssatR0N5oT6POS4r2ZwYa+sCXYrx8YMlKn9TQCIGTJS4c4O7w/u+bw32sNEyo+EPa+KDrw3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -75,7 +71,8 @@
 
             <div class="highlight">
                 <h1>Die zwei beliebtesten Weitwanderungen um Innsbruck</h1>
-                <p>Erlebe die unberührte Schönheit der Tiroler Alpen auf zwei der beeindruckendsten Höhenwege der Region: dem <strong>Karwendel Höhenweg</strong> und dem <strong>Inntaler Höhenweg</strong>. Der Karwendel Höhenweg, der von Reith bei Seefeld nach Scharnitz verläuft, bietet eine einmalige Gelegenheit, die majestätische Wildnis des größten Naturparks Österreichs zu erkunden. Hier genießt du von Juli bis September die beeindruckende Flora und Fauna sowie die Nähe zur pulsierenden Stadt Innsbruck. Die 66,7 km schaffst du in sechs Tagen und überwindest dabei 4.475 hm bergauf und 4.635 hm bergab. Der Inntaler Höhenweg führt dich von Innsbruck bis nach Schwaz und begeistert mit malerischen Almen, kristallklaren Bergseen und spektakulären Panoramen. Perfekt für Abenteurer und Naturliebhaber, bietet dieser Weg auf 71,2 km eine Reise durch atemberaubende Landschaften und historische Pfade. Dich erwarten insgesamt 3.930 hm bergauf ung 5.376 hm bergab, wobei du den Weg in sechs Tagen absolvierst. Der Weg ist von Mitte Juni bis September begehbar und wird genau wie der Karwendel Höhenweg als schwierig eingestuft. Lass dich von der Vielfalt und dem Zauber der Tiroler Bergwelt verzaubern! Für detaillierte Informationen und eine umfassende Kartenansicht klicke bitte auf die Kartenansicht weiter unten.</p>
+                <p>Erlebe die unberührte Schönheit der Tiroler Alpen auf zwei der beeindruckendsten Höhenwege der Region: dem <strong>Karwendel Höhenweg</strong> und dem <strong>Inntaler Höhenweg</strong>. Der Karwendel Höhenweg, der von Reith bei Seefeld nach Scharnitz verläuft, bietet eine einmalige Gelegenheit, die majestätische Wildnis des größten Naturparks Österreichs zu erkunden. Hier genießt du von Juli bis September die beeindruckende Flora und Fauna sowie die Nähe zur pulsierenden Stadt Innsbruck. Die 66,7 km schaffst du in sechs Tagen und überwindest dabei 4.475 hm bergauf und 4.635 hm bergab.</p>
+                <p>Der Inntaler Höhenweg führt dich von Innsbruck bis nach Schwaz und begeistert mit malerischen Almen, kristallklaren Bergseen und spektakulären Panoramen. Perfekt für Abenteurer und Naturliebhaber, bietet dieser Weg auf 71,2 km eine Reise durch atemberaubende Landschaften und historische Pfade. Dich erwarten insgesamt 3.930 hm bergauf ung 5.376 hm bergab, wobei du den Weg in sechs Tagen absolvierst. Der Weg ist von Mitte Juni bis September begehbar und wird genau wie der Karwendel Höhenweg als schwierig eingestuft. Lass dich von der Vielfalt und dem Zauber der Tiroler Bergwelt verzaubern! Für detaillierte Informationen und eine umfassende Kartenansicht klicke bitte auf die Kartenansicht weiter unten.</p>
             </div>
             <p></p>
             <div class="video-container">
@@ -86,159 +83,80 @@
             <div class="highlight">
                 <div id="map" style="width: 100%; height: 600px;" align="middle"></div>
             </div>
-            <div class="highlight">
-                <h2><a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-inntaler-hoehenweg">Inntaler Höhenweg</a></h2>
-                <p>Etappe 1: Innsbruck/Igls – Glungezerhütte
-                    Höhenmeter bergauf ab Bergstation 683 Meter, Dauer: 3 Std., 15 Min., Länge: 7,1 Kilometer
-
-                    Von Innsbruck-Igls Auffahrt mit der Patscherkofelbahn oder Aufstieg über Heiligwasser. Vom Patscherkofelhaus (1.970 Meter) über den Zirbenweg nach Boscheben, dann rechts hinauf am Glungezersteig zur Glungezerhütte (2.610 Meter). Von dort empfiehlt sich der kurze Aufstieg auf die Sonnenspitze (2.639 Meter) und auf den Glungezer (2.677 Meter). Herrliche Rundumsicht auf ca. 500 Gipfel und Jöcher.</p>
-
-                <p>Etappe 2: Glungezerhütte – Lizumer Hütte (schwarze Bergwege)
-                    Höhenmeter bergauf/bergab: 705/1.295 Meter, Dauer: 7 Std., 30 Min., Länge: 14,5 Kilometer
-
-                    Glungezer – Gamslahner – Kreuzjöchl – Kreuzspitze – Rosenjoch – Grünbergspitze – Grafmartspitze – Naviser Jöchl – Mölsjoch – Klammjoch – Lizumer Hütte.
-                    Von der Glungezerhütte auf meist steiglosem, markiertem Grat zum Teil über Blockgestein in Richtung Süden über die aussichtsreichen „seven Tuxer summits“. Höchster Routenpunkt ist das Rosenjoch mit 2.796 Metern. Weiter über den Grat zur Wattener Lizum und zur Lizumer Hütte (2.019 Meter). Die Lizumer Hütte liegt im Gebiet des Bundesheer-Truppenübungsplatzes „Lizum Walchen“, Informationen zu den Schießzeiten und Verhaltensregeln gibt es telefonisch unter +43.50201.6442010 oder online auf www.wattenberg.tirol.gv.at.</p>
-
-                <p> Etappe 3: Lizumer Hütte – Weidener Hütte
-                    Höhenmeter bergauf/bergab: 672/891 Meter, Dauer: 5,5 Stunden, Länge: 11,7 Kilometer
-
-                    Ab der Lizumer Hütte folgt man dem Zentralalpenweg 02A: An der Soldatenkirche vorbei, durch alte Zirbenbestände unterhalb von Torspitze, Eiskarspitze und „Hippold” führt der Steig hinauf zum Grafensjoch (in alten Karten „Krovenzjoch“), 2.450 Meter. Ab hier Abstieg ins Tal, entlang des Weerbachs zur Grafennsalm und weiter zur Weidener Hütte (1.799 Meter). Als Gipfel empfiehlt sich der Hausberg der Lizumer Hütte, der Geier (2.858 Meter). Man benötigt dafür ca. drei Stunden Aufstieg ab Lizumer Hütte.
-
-                    Tipp: vom Grafensjoch kann zusätzlich die Hippoldspitze bestiegen werden (ca. 1h extra).</p>
-
-                <p>Etappe 4: Weidener Hütte – Rastkogelhütte
-                    Höhenmeter bergauf/bergab: 1.049/733 Meter, Dauer: 6,5 Stunden, Länge: 12,4 Kilometer
-
-                    Von der Weidener Hütte am Zentralalpenweg 02A am Nafingbach entlang taleinwärts, über die Nafingalm am Fuß der Halslspitze zum Nurpensjoch. Weiter am Steig Nr. 318 zum Rastkogel (2.762 Meter). Anschließend Abstieg über den Kamm, vorbei an zwei kleinen Bergseen zum Sidanjoch (2.762 Meter) und zur Rastkogelhütte (2.124 Meter).</p>
-
-                <p>Etappe 5: Rastkogelhütte – Hochfügen – Kellerjochhütte
-                    Höhenmeter bergauf/bergab: 878/759 Meter, Dauer: 6 Stunden, Länge: 14 Kilometer
-
-                    Von der Rastkogelhütte zurück zum Sidanjoch (2.127 Meter) und auf leichtem Abstieg über den Steig Nr. 316 zum Pfundsalm-Mittelleger (1.832 Meter), entlang des Finsingbachs talauswärts nach Hochfügen (1.470 Meter). Hier gibt es Übernachtungsmöglichkeiten, Abstieg also nur bei Bedarf. Ansonsten weiter auf Steig Nr. 316 hinauf zur Maschentalalm (1.717 Meter) und zum Loassattel (1.675 Meter). Nun entweder auf dem Hochebenweg Nr. 311 über die Naunzalm zur Kellerjochhütte oder weiter am Steig Nr. 316 auf den Kuhmesser mit grandiosem Ausblick in Richtung Innsbruck und Zillertal. Der Weg führt von hier unterhalb des Gipfels zur Kellerjochhütte.</p>
-
-                <p> Etappe 6: Kellerjochhütte – Schwaz
-                    Höhenmeter bergab: bis Grafenast 900 Meter, bis Schwaz 1.730 Meter; Dauer: bis Grafenast 2 Std., bis Schwaz 5 Std.; Länge: bis Grafenast 6 Kilometer, bis Schwaz 11,6 Kilometer
-
-                    Vor dem Abstieg ins Tal lohnt sich ein Abstecher zur sehenswerten Gipfelkapelle am Kellerjoch (2.344 Meter) mit traumhafter Aussicht aufs Karwendelgebirge. Auf demselben Steig zurück zur Hütte, dann weiter über den Jägersteig zum Hoch- und Niederleger der Naunzalm. Weiter über den Jägersteig und anschließend über den „Alten Kellerjochweg“ Nr. 312 nach Hochpillberg, Bergstation Grafenast (1.347 Meter) und nach Schwaz.</p>
-
-                <!-- Slideshow für Inntal Weg-->
-                <div class="slideshow-container">
-
-                    <!-- Bilder mit Nummer und Text -->
-                    <div class="mySlides fade">
-                        <div class="numbertext">1 / 5</div>
-                        <img src="bilder/huette-7.jpeg" style="width:100%">
-                        <div class="text">Glungezer Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
-                    </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">2 / 5</div>
-                        <img src="bilder/huette-6.jpeg" style="width:100%">
-                        <div class="text">Lizumer Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
-                    </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">3 / 5</div>
-                        <img src="bilder/huette-8.jpeg" style="width:100%">
-                        <div class="text">Weidener Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
-                    </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">4 / 5</div>
-                        <img src="bilder/huette-9.jpeg" style="width:100%">
-                        <div class="text">Rastkogelhütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
-                    </div>
-
-                    <div class="mySlides fade">
-                        <div class="numbertext">5 / 5</div>
-                        <img src="bilder/huette-10.jpeg" style="width:100%">
-                        <div class="text">Kellerjochhütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
-                    </div>
-
-                    <!-- Vorhäriges/nächstes Foto -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-                <br>
-
-                <!-- Punkt unten zur Angabe welches Foto es ist -->
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
-                </div>
 
             </div>
             <div class="highlight">
                 <h2><a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-karwendel-hoehenweg">Karwendel Höhenweg</a></h2>
-                <p>Etappe 1: Reith bei Seefeld – Nördlinger Hütte
-                    Höhenmeter bergauf: 1.150 Meter, Dauer: 3 Stunden, Länge: 6,5 Kilometer
-
-                    Die Tour beginnt mit einem Aufstieg zu einer gemütlichen AV-Schutzhütte mit grandiosem Aussichtspanorama: Am Bahnhof in Reith bei Seefeld der Straße Richtung Norden folgen. Die Römerstraße überquerend auf dem Panoramaweg, bis dieser auf den Steig Nr. 211 abbiegt. Auf diesem Weg weiter und rechts abzweigend in Serpentinen zum Schartlehnerhaus (1.856 Meter). Anschließend über den Latschenrücken entlang des sogenannten „Schoaßgrates“ zuerst in Serpentinen, dann etwas weniger kurvig hinauf zur Nördlinger Hütte (2.239 Meter).
+                <h3>
+                    Etappe 1: Reith bei Seefeld – Nördlinger Hütte
+                </h3>
+                <p><em>
+                        Höhenmeter bergauf: 1.150 Meter, Dauer: 3 Stunden, Länge: 6,5 Kilometer </em></p>
+                <p>Die Tour beginnt mit einem Aufstieg zu einer gemütlichen AV-Schutzhütte mit grandiosem Aussichtspanorama: Am Bahnhof in Reith bei Seefeld der Straße Richtung Norden folgen. Die Römerstraße überquerend auf dem Panoramaweg, bis dieser auf den Steig Nr. 211 abbiegt. Auf diesem Weg weiter und rechts abzweigend in Serpentinen zum Schartlehnerhaus (1.856 Meter). Anschließend über den Latschenrücken entlang des sogenannten „Schoaßgrates“ zuerst in Serpentinen, dann etwas weniger kurvig hinauf zur Nördlinger Hütte (2.239 Meter).
 
                     Variante: Von der Talstation der Bergbahnen Rosshütte in Seefeld mit der Standseilbahn zur Rosshütte (1.751 Meter), weiter mit der Härmelekopfbahn zum Ausgangspunkt der Wanderung. Von hier entweder direkt über den Kuntersteig (10) zur Nördlinger Hütte oder steil und ausgesetzt über den Härmelekopf und die Reither Spitze (79) zur Nördlinger Hütte.</p>
 
-                <p>Etappe 2: Nördlinger Hütte - Solsteinhaus
-                    Höhenmeter bergauf: 350 Meter, Dauer: 4 Stunden, Länge: 6,7 Kilometer
 
-                    Diese Etappe führt über den Ursprungsattel und die Eppzirler Scharte zum Solsteinhaus. Von der Nördlinger Hütte zieht der Weg zuerst nach Osten, dann unterhalb der Ostabbrüche der Reither Spitze nach Norden und führt anschließend wieder in Richtung Osten zum Ursprungsattel (2.087 Meter). Von hier dem abwärts führenden Weg nach Nordosten folgen. Am Breiten Sattel (1.794 Meter) nach rechts auf den Steig 74 zur Eppzirler Scharte abzweigen. Das große Geröllfeld des Kuhljochs queren und in wenigen Serpentinen auf die Eppzirler Scharte (2.102 Meter). Nun geht es etwa 200 Höhenmeter in das Höllkar hinunter (Steig 212). Anschließend dem Steig 211/212 folgen, der in moderatem Auf und Ab zum Solsteinhaus führt.</p>
+                <h3>Etappe 2: Nördlinger Hütte - Solsteinhaus</h3>
+                <p><em>Höhenmeter bergauf: 350 Meter, Dauer: 4 Stunden, Länge: 6,7 Kilometer</em></p>
 
-                <p> Etappe 3: Solsteinhaus - Pfeishütte
-                    Höhenmeter bergauf: 1.303 Meter, Dauer: 8 Stunden, Länge: 16,5 Kilometer
+                <p>Diese Etappe führt über den Ursprungsattel und die Eppzirler Scharte zum Solsteinhaus. Von der Nördlinger Hütte zieht der Weg zuerst nach Osten, dann unterhalb der Ostabbrüche der Reither Spitze nach Norden und führt anschließend wieder in Richtung Osten zum Ursprungsattel (2.087 Meter). Von hier dem abwärts führenden Weg nach Nordosten folgen. Am Breiten Sattel (1.794 Meter) nach rechts auf den Steig 74 zur Eppzirler Scharte abzweigen. Das große Geröllfeld des Kuhljochs queren und in wenigen Serpentinen auf die Eppzirler Scharte (2.102 Meter). Nun geht es etwa 200 Höhenmeter in das Höllkar hinunter (Steig 212). Anschließend dem Steig 211/212 folgen, der in moderatem Auf und Ab zum Solsteinhaus führt.</p>
 
-                    Die längste Etappe des Karwendel Höhenwegs führt über Gipfelstürmerweg und Goetheweg zur Pfeishütte. Vom Solsteinhaus auf Steig 213 hinab Richtung Möslalm. Bei der Abzweigung in der „Wilden Iss“ dem Gipfelstürmerweg (215) Richtung Osten folgen. Er führt an einer Jagdhütte vorbei. Danach in Serpentinen den Rücken hinauf bis zum „Hippen“. Nach einem kurzen Abstieg durch versicherte Passagen steil hinauf zum Frau Hitt Sattel, westlich der markanten Felsnadel und des Innsbrucker Wahrzeichens „Frau Hitt“. Vom Sattel steil auf dem Schmidhubersteig hinunter und über Bergwiesen zum Restaurant Seegrube (1.906 Meter). Von hier auf dem Steig 216 hinauf zum Hafelekarhaus (2.269 Meter). Südlich unterhalb der Hafelekarspitze führt der Goetheweg (219) zur Pfeishütte. Zunächst geht es mit weitreichenden Ausblicken auf Innsbruck und das Inntal ohne größere Höhenunterschiede über das Gleirschjöchl zur Mühlkarscharte. Hier wechselt der Weg auf die Nordseite der Nordkette und eröffnet fantastische Blicke ins Karwendelgebirge. Weiter über Serpentinen auf die Mandlscharte (2.314 Meter) und von dort hinunter in die Pfeis. Das letzte Wegstück führt durch Latschenfelder zur Pfeishütte.
+                <h3> Etappe 3: Solsteinhaus - Pfeishütte</h3>
+                <p><em> Höhenmeter bergauf: 1.303 Meter, Dauer: 8 Stunden, Länge: 16,5 Kilometer</em></p>
+
+                <p>Die längste Etappe des Karwendel Höhenwegs führt über Gipfelstürmerweg und Goetheweg zur Pfeishütte. Vom Solsteinhaus auf Steig 213 hinab Richtung Möslalm. Bei der Abzweigung in der „Wilden Iss“ dem Gipfelstürmerweg (215) Richtung Osten folgen. Er führt an einer Jagdhütte vorbei. Danach in Serpentinen den Rücken hinauf bis zum „Hippen“. Nach einem kurzen Abstieg durch versicherte Passagen steil hinauf zum Frau Hitt Sattel, westlich der markanten Felsnadel und des Innsbrucker Wahrzeichens „Frau Hitt“. Vom Sattel steil auf dem Schmidhubersteig hinunter und über Bergwiesen zum Restaurant Seegrube (1.906 Meter). Von hier auf dem Steig 216 hinauf zum Hafelekarhaus (2.269 Meter). Südlich unterhalb der Hafelekarspitze führt der Goetheweg (219) zur Pfeishütte. Zunächst geht es mit weitreichenden Ausblicken auf Innsbruck und das Inntal ohne größere Höhenunterschiede über das Gleirschjöchl zur Mühlkarscharte. Hier wechselt der Weg auf die Nordseite der Nordkette und eröffnet fantastische Blicke ins Karwendelgebirge. Weiter über Serpentinen auf die Mandlscharte (2.314 Meter) und von dort hinunter in die Pfeis. Das letzte Wegstück führt durch Latschenfelder zur Pfeishütte.
 
                     Variante: Für die 363 Höhenmeter vom Restaurant Seegrube auf das Hafelekarhaus kann man die Hafelekarbahn nutzen.</p>
 
-                <p>Etappe 4: Pfeishütte - Bettelwurfhütte
-                    Höhenmeter bergauf: 500 Meter, Dauer: 4,30 Stunden, Länge: 8.9 Kilometer
+                <h3>Etappe 4: Pfeishütte - Bettelwurfhütte</h3>
+                <p><em> Höhenmeter bergauf: 500 Meter, Dauer: 4,30 Stunden, Länge: 8.9 Kilometer</em></p>
 
-                    Bei dieser Etappe geht es u. a. über das Stempeljoch und den wildromantischen Wilde Bande-Steig zur Bettelwurfhütte. Von der Pfeishütte auf dem Steig 221 (Via Alpina) in östliche Richtung leicht ansteigend zum Stempeljoch (2.215 Meter). Ab hier führt der Steig steil über eine Schotterreise hinab (Achtung: Rutschgefahr im Frühsommer auf Altschnee-Feldern!) Nach etwa 140 Höhenmeter Abstieg links in den Wilde-Bande-Steig abzweigen. Nun zuerst unter den Ost- und Südflanken der Stempeljochspitzen, des Rosskopfes sowie des Großen und Kleinen Lafatschers in leichtem Auf und Ab in Richtung Lafatscher Joch. Vor dem Lafatscher Joch (2.081 Meter) wartet noch ein Anstieg von etwa 80 Höhenmetern. Anschließend verläuft der Steig 222 (Via Alpina) leicht ansteigend Richtung Osten durch das Kleine und Große Speckkar. Nun ist man schon fast bei der Bettelwurfhütte angelangt, die wie ein Adlerhorst an der Südflanke des Kleinen Bettelwurfs thront.</p>
+                <p>Bei dieser Etappe geht es u. a. über das Stempeljoch und den wildromantischen Wilde Bande-Steig zur Bettelwurfhütte. Von der Pfeishütte auf dem Steig 221 (Via Alpina) in östliche Richtung leicht ansteigend zum Stempeljoch (2.215 Meter). Ab hier führt der Steig steil über eine Schotterreise hinab (Achtung: Rutschgefahr im Frühsommer auf Altschnee-Feldern!) Nach etwa 140 Höhenmeter Abstieg links in den Wilde-Bande-Steig abzweigen. Nun zuerst unter den Ost- und Südflanken der Stempeljochspitzen, des Rosskopfes sowie des Großen und Kleinen Lafatschers in leichtem Auf und Ab in Richtung Lafatscher Joch. Vor dem Lafatscher Joch (2.081 Meter) wartet noch ein Anstieg von etwa 80 Höhenmetern. Anschließend verläuft der Steig 222 (Via Alpina) leicht ansteigend Richtung Osten durch das Kleine und Große Speckkar. Nun ist man schon fast bei der Bettelwurfhütte angelangt, die wie ein Adlerhorst an der Südflanke des Kleinen Bettelwurfs thront.</p>
 
-                <p>Etappe 5: Bettelwurfhütte – Großer Bettelwurf – Hallerangerhaus
-                    Höhenmeter bergauf: 777 Meter, Dauer: 6 Stunden, Länge: 9,5 Kilometer
+                <h3>Etappe 5: Bettelwurfhütte – Großer Bettelwurf – Hallerangerhaus</h3>
+                <p><em> Höhenmeter bergauf: 777 Meter, Dauer: 6 Stunden, Länge: 9,5 Kilometer</em></p>
 
-                    Diese Etappe führt von der Bettelwurfhütte zunächst etwa 650 Höhenmeter hinauf zum vierthöchsten Gipfel des Karwendelgebirges: den Großen Bettelwurf (2.726 Meter). Er ist zugleich der höchste Punkt des Weitwanderwegs. Der Aufstieg beginnt schwach ansteigend, wird dann aber immer steiler. Auf dem „Eisengattergrat“, dem Südgrat des Berges, ist der Steig teilweise ausgesetzt, Trittsicherheit und Schwindelfreiheit sind unabdingbar. Es gibt drahtseilversicherte Passagen und Abschnitte mit leichter Kletterei (Grad I) in griffigem Kalkstein. Nach dem Gipfelsieg und dem Genuss der weiten Aussicht geht es zurück zur Bettelwurfhütte, dem „Adlerhorst des Karwendels“, und vorn dort weiter auf alten Saumwegen (Steig 222) über das Lafatscher Joch (2.081 Meter) zum Hallerangerhaus. Dort in nördliche Richtung auf den Steig 223 abzweigen. Dieser Streckenabschnitt ist Teil des beliebten Weitwanderweges „Adlerweg“. Zwischen dem Lafatscher, dem Rosskopf und der Speckkarspitze geht es stets bergab zum einladenden Hallerangerhaus (1.768 Meter).</p>
+                <p>Diese Etappe führt von der Bettelwurfhütte zunächst etwa 650 Höhenmeter hinauf zum vierthöchsten Gipfel des Karwendelgebirges: den Großen Bettelwurf (2.726 Meter). Er ist zugleich der höchste Punkt des Weitwanderwegs. Der Aufstieg beginnt schwach ansteigend, wird dann aber immer steiler. Auf dem „Eisengattergrat“, dem Südgrat des Berges, ist der Steig teilweise ausgesetzt, Trittsicherheit und Schwindelfreiheit sind unabdingbar. Es gibt drahtseilversicherte Passagen und Abschnitte mit leichter Kletterei (Grad I) in griffigem Kalkstein. Nach dem Gipfelsieg und dem Genuss der weiten Aussicht geht es zurück zur Bettelwurfhütte, dem „Adlerhorst des Karwendels“, und vorn dort weiter auf alten Saumwegen (Steig 222) über das Lafatscher Joch (2.081 Meter) zum Hallerangerhaus. Dort in nördliche Richtung auf den Steig 223 abzweigen. Dieser Streckenabschnitt ist Teil des beliebten Weitwanderweges „Adlerweg“. Zwischen dem Lafatscher, dem Rosskopf und der Speckkarspitze geht es stets bergab zum einladenden Hallerangerhaus (1.768 Meter).</p>
 
-                <p>Etappe 6: Hallerangerhaus - Scharnitz
-                    Höhenmeter bergauf: 82 Meter, Dauer: 5 Stunden, Länge: 19,3 Kilometer
+                <h3><strong>Etappe 6: Hallerangerhaus - Scharnitz</strong></h3>
+                <p><em>Höhenmeter bergauf: 82 Meter, Dauer: 5 Stunden, Länge: 19,3 Kilometer</em></p>
 
-                    Der Abstieg über das Hinterautal nach Scharnitz bildet die letzte Etappe des Höhenweges Karwendel. Vom Hallerangerhaus dem Weg 224 Richtung Westen folgen (ein Abstecher zur Sunntigerspitze bietet sich an). Danach weiter zur Kohleralm, von wo man bald zum Lafatscher Niederleger gelangt. Nun etwas steiler den Fahrweg entlang hinunter ins Hinterautal. Die Kastenalm ist an der markierten Weggabelung durch einen kurzen Abstecher zu erreichen. Von hier immer der Fahrstraße entlang talauswärts, vorbei am Isarursprung, das ist jene Stelle, wo sich drei Gebirgsbäche zur türkisblauen Isar zusammenfinden. Nun leicht ansteigend hinauf auf die Gleirschhöhe (1.069 Meter) und anschließend wieder gemütlich absteigend, vorbei am Gasthof Wiesenhof, bis zur Isarbrücke und weiter nach Scharnitz. Beim Hallerangerhaus kann man ein Bike mieten und dadurch die doch ziemlich lange Wegstrecke von der Kastenalm bis Scharnitz zeitlich wesentlich verkürzen.</p>
+                <p>Der Abstieg über das Hinterautal nach Scharnitz bildet die letzte Etappe des Höhenweges Karwendel. Vom Hallerangerhaus dem Weg 224 Richtung Westen folgen (ein Abstecher zur Sunntigerspitze bietet sich an). Danach weiter zur Kohleralm, von wo man bald zum Lafatscher Niederleger gelangt. Nun etwas steiler den Fahrweg entlang hinunter ins Hinterautal. Die Kastenalm ist an der markierten Weggabelung durch einen kurzen Abstecher zu erreichen. Von hier immer der Fahrstraße entlang talauswärts, vorbei am Isarursprung, das ist jene Stelle, wo sich drei Gebirgsbäche zur türkisblauen Isar zusammenfinden. Nun leicht ansteigend hinauf auf die Gleirschhöhe (1.069 Meter) und anschließend wieder gemütlich absteigend, vorbei am Gasthof Wiesenhof, bis zur Isarbrücke und weiter nach Scharnitz. Beim Hallerangerhaus kann man ein Bike mieten und dadurch die doch ziemlich lange Wegstrecke von der Kastenalm bis Scharnitz zeitlich wesentlich verkürzen.
+                </p>
 
-                <!-- Slideshow für Karwendel Weg (am liebsten mit Links zu den Hüttenbuchungsportalen https://www.alpsonline.org/reservation/calendar?hut_id=202&lang=de_DE&header=yes)-->
+                <!-- Slideshow für Karwendel Weg -->
                 <div class="slideshow-container">
 
                     <!-- Bilder mit Nummer und Text -->
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
-                        <img src="bilder/huette-0.jpeg" style="width:100%">
-                        <div class="text">Nördlinger Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i>Homepage</a> (Copyright: Merit Koch)</div>
+                        <img src="bilder/huette-0.jpg" style="width:100%">
+                        <div class="text">Nördlinger Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Copyright: Merit Koch)</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 5</div>
                         <img src="bilder/huette-1.jpeg" style="width:100%">
-                        <div class="text">Solsteinhaus <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                        <div class="text">Solsteinhaus <a href="https://www.solsteinhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 5</div>
                         <img src="bilder/huette-2.jpeg" style="width:100%">
-                        <div class="text">Pfeishütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                        <div class="text">Pfeishütte <a href="https://www.alpenverein.at/pfeishuette/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">4 / 5</div>
                         <img src="bilder/huette-3.jpeg" style="width:100%">
-                        <div class="text">Bettelwurfhütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                        <div class="text">Bettelwurfhütte <a href="https://www.bettelwurfhuette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">5 / 5</div>
                         <img src="bilder/huette-4.jpeg" style="width:100%">
-                        <div class="text">Hellerangerhaus <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                        <div class="text">Hellerangerhaus <a href="https://www.hallerangerhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
                     </div>
 
                     <!-- Vorheriges/nächstes Foto -->
@@ -256,6 +174,89 @@
                     <span class="dot" onclick="currentSlide(5)"></span>
                 </div>
             </div>
+
+            <div class="highlight">
+                <h2><a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-inntaler-hoehenweg">Inntaler Höhenweg</a></h2>
+                <h3>Etappe 1: Innsbruck/Igls – Glungezerhütte</h3>
+                <p><em>Höhenmeter bergauf ab Bergstation 683 Meter, Dauer: 3 Std., 15 Min., Länge: 7,1 Kilometer</em></p>
+
+                <p>Von Innsbruck-Igls Auffahrt mit der Patscherkofelbahn oder Aufstieg über Heiligwasser. Vom Patscherkofelhaus (1.970 Meter) über den Zirbenweg nach Boscheben, dann rechts hinauf am Glungezersteig zur Glungezerhütte (2.610 Meter). Von dort empfiehlt sich der kurze Aufstieg auf die Sonnenspitze (2.639 Meter) und auf den Glungezer (2.677 Meter). Herrliche Rundumsicht auf ca. 500 Gipfel und Jöcher.</p>
+
+                <h3>Etappe 2: Glungezerhütte – Lizumer Hütte (schwarze Bergwege)</h3>
+                <p><em>Höhenmeter bergauf/bergab: 705/1.295 Meter, Dauer: 7 Std., 30 Min., Länge: 14,5 Kilometer</em></p>
+
+                <p>Glungezer – Gamslahner – Kreuzjöchl – Kreuzspitze – Rosenjoch – Grünbergspitze – Grafmartspitze – Naviser Jöchl – Mölsjoch – Klammjoch – Lizumer Hütte.
+                    Von der Glungezerhütte auf meist steiglosem, markiertem Grat zum Teil über Blockgestein in Richtung Süden über die aussichtsreichen „seven Tuxer summits“. Höchster Routenpunkt ist das Rosenjoch mit 2.796 Metern. Weiter über den Grat zur Wattener Lizum und zur Lizumer Hütte (2.019 Meter). Die Lizumer Hütte liegt im Gebiet des Bundesheer-Truppenübungsplatzes „Lizum Walchen“, Informationen zu den Schießzeiten und Verhaltensregeln gibt es telefonisch unter +43.50201.6442010 oder online auf www.wattenberg.tirol.gv.at.</p>
+
+                <h3> Etappe 3: Lizumer Hütte – Weidener Hütte</h3>
+                <p><em>Höhenmeter bergauf/bergab: 672/891 Meter, Dauer: 5,5 Stunden, Länge: 11,7 Kilometer</em></p>
+
+                <p>Ab der Lizumer Hütte folgt man dem Zentralalpenweg 02A: An der Soldatenkirche vorbei, durch alte Zirbenbestände unterhalb von Torspitze, Eiskarspitze und „Hippold” führt der Steig hinauf zum Grafensjoch (in alten Karten „Krovenzjoch“), 2.450 Meter. Ab hier Abstieg ins Tal, entlang des Weerbachs zur Grafennsalm und weiter zur Weidener Hütte (1.799 Meter). Als Gipfel empfiehlt sich der Hausberg der Lizumer Hütte, der Geier (2.858 Meter). Man benötigt dafür ca. drei Stunden Aufstieg ab Lizumer Hütte. Tipp: vom Grafensjoch kann zusätzlich die Hippoldspitze bestiegen werden (ca. 1h extra).</p>
+
+                <h3>Etappe 4: Weidener Hütte – Rastkogelhütte</h3>
+                <p><em>Höhenmeter bergauf/bergab: 1.049/733 Meter, Dauer: 6,5 Stunden, Länge: 12,4 Kilometer</em></p>
+
+                <p>Von der Weidener Hütte am Zentralalpenweg 02A am Nafingbach entlang taleinwärts, über die Nafingalm am Fuß der Halslspitze zum Nurpensjoch. Weiter am Steig Nr. 318 zum Rastkogel (2.762 Meter). Anschließend Abstieg über den Kamm, vorbei an zwei kleinen Bergseen zum Sidanjoch (2.762 Meter) und zur Rastkogelhütte (2.124 Meter).</p>
+
+                <h3>Etappe 5: Rastkogelhütte – Hochfügen – Kellerjochhütte</h3>
+                <p><em>Höhenmeter bergauf/bergab: 878/759 Meter, Dauer: 6 Stunden, Länge: 14 Kilometer</em></p>
+
+                <p> Von der Rastkogelhütte zurück zum Sidanjoch (2.127 Meter) und auf leichtem Abstieg über den Steig Nr. 316 zum Pfundsalm-Mittelleger (1.832 Meter), entlang des Finsingbachs talauswärts nach Hochfügen (1.470 Meter). Hier gibt es Übernachtungsmöglichkeiten, Abstieg also nur bei Bedarf. Ansonsten weiter auf Steig Nr. 316 hinauf zur Maschentalalm (1.717 Meter) und zum Loassattel (1.675 Meter). Nun entweder auf dem Hochebenweg Nr. 311 über die Naunzalm zur Kellerjochhütte oder weiter am Steig Nr. 316 auf den Kuhmesser mit grandiosem Ausblick in Richtung Innsbruck und Zillertal. Der Weg führt von hier unterhalb des Gipfels zur Kellerjochhütte.</p>
+
+                <h3> Etappe 6: Kellerjochhütte – Schwaz</h3>
+                <p><em>Höhenmeter bergab: bis Grafenast 900 Meter, bis Schwaz 1.730 Meter; Dauer: bis Grafenast 2 Std., bis Schwaz 5 Std.; Länge: bis Grafenast 6 Kilometer, bis Schwaz 11,6 Kilometer</em></p>
+
+                <p> Vor dem Abstieg ins Tal lohnt sich ein Abstecher zur sehenswerten Gipfelkapelle am Kellerjoch (2.344 Meter) mit traumhafter Aussicht aufs Karwendelgebirge. Auf demselben Steig zurück zur Hütte, dann weiter über den Jägersteig zum Hoch- und Niederleger der Naunzalm. Weiter über den Jägersteig und anschließend über den „Alten Kellerjochweg“ Nr. 312 nach Hochpillberg, Bergstation Grafenast (1.347 Meter) und nach Schwaz.</p>
+
+                <!-- Slideshow für Inntal Weg-->
+                <div class="slideshow-container">
+
+                    <!-- Bilder mit Nummer und Text -->
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 5</div>
+                        <img src="bilder/huette-7.jpeg" style="width:100%">
+                        <div class="text">Glungezer Hütte <a href="https://www.glungezer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 5</div>
+                        <img src="bilder/huette-6.jpeg" style="width:100%">
+                        <div class="text">Lizumer Hütte <a href="https://www.lizumer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="bilder/huette-8.jpeg" style="width:100%">
+                        <div class="text">Weidener Hütte <a href="https://www.weidener-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="bilder/huette-9.jpeg" style="width:100%">
+                        <div class="text">Rastkogelhütte <a href="http://www.rastkogelhuette.de"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="bilder/huette-10.jpeg" style="width:100%">
+                        <div class="text">Kellerjochhütte <a href="https://www.kellerjochhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <!-- Vorheriges/nächstes Foto -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!-- Punkt unten zur Angabe welches Foto es ist -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+
         </article>
     </main>
     <footer>

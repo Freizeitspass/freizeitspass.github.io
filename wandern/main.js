@@ -6,7 +6,7 @@ let zoom = 1;
 let map = L.map("map", {
     fullscreenControl: true,
     gestureHandling: false,
-}).setView([lat, lng], 1);
+}).setView([lat, lng], 0);
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -31,14 +31,14 @@ let baseLayers = {
 let karwendelLayer = L.layerGroup();
 let inntallLayer = L.layerGroup();
 
-// Overlay-Layer für Routen
-let overlayLayers = {
+// Thema-Layer für Routen
+let themaLayer = {
     "Karwendel Route": karwendelLayer,
     "Inntal Route": inntallLayer
 };
 
 // Layers Control hinzufügen
-let layerControl = L.control.layers(baseLayers, overlayLayers).addTo(map);
+let layerControl = L.control.layers(baseLayers, themaLayer).addTo(map);
 //Maßstab 
 L.control.scale({
     imperial: false,
@@ -51,6 +51,7 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
     toggleDisplay: true,
 }).addTo(map);
 
+
 //GPX mit Höhenprofil einbinden
 let controlElevationKarwendel = L.control.elevation({
     position: "bottomright",
@@ -58,6 +59,7 @@ let controlElevationKarwendel = L.control.elevation({
     collapsed: true
 }).addTo(map);
 controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
+
 
 let controlElevationInntal = L.control.elevation({
     // time: false,
@@ -68,18 +70,36 @@ let controlElevationInntal = L.control.elevation({
 }).addTo(map);
 controlElevationInntal.load("data/gps-track-inntaler-hoehenweg.gpx");
 
-// RainViewer setup
-let rainviewer = new L.Control.Rainviewer({
-    position: 'bottomleft',
-    nextButtonText: '>',
-    playStopButtonText: 'Start/Stopp',
-    prevButtonText: '<',
-    positionSliderLabelText: "Zeit:",
-    opacitySliderLabelText: "Sichtbarkeit:",
-    animationInterval: 500,
-    opacity: 0.5
+/*
+//neuer Weg Elevation
+//Festival-Radweg
+var gpx = 'data/gps-daten-karwendel-hoehenweg.gpx';
+let karwendel = new L.GPX(gpx, {
+    polyline_options: {
+        color: '#8D021F',
+        opacity: 0.75,
+        weight: 3
+    },
+    marker_options: {
+        startIconUrl: "icons/tab_cycle.png",
+        endIconUrl: false,
+        shadowUrl: false,
+        wptIconUrls: false
+    }
+}).addTo(themaLayer.karwendelLayer);
+
+// GPX Track visualisieren aus https://raruto.github.io/leaflet-elevation/
+festival.on("click", function (evt) {
+    let controlElevation = L.control.elevation({
+        time: false,
+        elevationDiv: "#profile",
+        height: 300,
+        theme: "festival"
+    }).addTo(map);
+    // Load track from url (allowed data types: "*.geojson", "*.gpx", "*.tcx")
+    controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx")
 });
-map.addControl(rainviewer);
+*/
 
 // Locate Control
 L.control.locate().addTo(map);
@@ -111,7 +131,7 @@ scrollToTopBtn.addEventListener('click', function () {
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Vorhäriges/nächstes Foto
+// Vorheriges/nächstes Foto
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
