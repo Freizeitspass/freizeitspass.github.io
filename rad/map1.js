@@ -67,16 +67,5 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .addTo(map1);
 
-    //Rainviewer Plugin
-    // L.control.rainviewer({
-    //   position: 'bottomleft',
-    //  nextButtonText: '>',
-    //  playStopButtonText: 'Play/Stop',
-    //  prevButtonText: '<',
-    //  positionSliderLabelText: "Hour:",
-    //  opacitySliderLabelText: "Opacity:",
-    //  animationInterval: 500,
-    // opacity: 0.5
-    //}).addTo(map1);
 
 });
