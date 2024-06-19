@@ -34,9 +34,9 @@ let baseLayers = {
     ]).addTo(map),
 };
 
-//Layer control hinzufügen
-L.control.layers(baseLayers).addTo(map);
-
+//Layercontrol hinzufügen
+L.control.layers(baseLayers).addTo(map); 
+   
 //Maßstab hinzugefügt
 L.control.scale({
     imperial: false,
@@ -197,4 +197,5 @@ scrollToTopBtn.addEventListener('click', function () {
         behavior: 'smooth'
     });
 });
+
 
