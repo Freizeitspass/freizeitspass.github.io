@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><gpx xmlns="http://www.topografix.com/GPX/1/1" creator="CONTWISE MAPS" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.topografix.com/GPX/gpx_overlay/0/3 http://www.topografix.com/GPX/gpx_overlay/0/3/gpx_overlay.xsd http://www.topografix.com/GPX/gpx_modified/0/1 http://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd http://www.topografix.com/GPX/Private/TopoGrafix/0/3 http://www.topografix.com/GPX/Private/TopoGrafix/0/3/topografix.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1"><wpt lon="11.45231" lat="47.21116"><ele><![CDATA[1948]]></ele><name><![CDATA[patscherkofelhaus_66751923]]></name></wpt>
-<wpt lon="11.47659" lat="47.21169"><ele><![CDATA[2037]]></ele><name><![CDATA[boscheben_66751924]]></name></wpt>
-<wpt lon="11.52693" lat="47.20988"><ele><![CDATA[2605]]></ele><name><![CDATA[glungezerhuette_66751925]]></name></wpt>
-<wpt lon="11.52852" lat="47.20751"><ele><![CDATA[2671]]></ele><name><![CDATA[glungezer_66751926]]></name></wpt>
-<wpt lon="11.64034" lat="47.16678"><ele><![CDATA[2017]]></ele><name><![CDATA[lizumer_huette_66751927]]></name></wpt>
-<wpt lon="11.7085" lat="47.22391"><ele><![CDATA[1802]]></ele><name><![CDATA[weidener_huette_66751928]]></name></wpt>
-<wpt lon="11.78832" lat="47.23233"><ele><![CDATA[2117]]></ele><name><![CDATA[rastkoglhuette_66751929]]></name></wpt>
-<wpt lon="11.76478" lat="47.31663"><ele><![CDATA[2234]]></ele><name><![CDATA[kellerjochhuette_66751930]]></name></wpt>
+<?xml version="1.0" encoding="UTF-8"?><gpx xmlns="http://www.topografix.com/GPX/1/1" creator="CONTWISE MAPS" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.topografix.com/GPX/gpx_overlay/0/3 http://www.topografix.com/GPX/gpx_overlay/0/3/gpx_overlay.xsd http://www.topografix.com/GPX/gpx_modified/0/1 http://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd http://www.topografix.com/GPX/Private/TopoGrafix/0/3 http://www.topografix.com/GPX/Private/TopoGrafix/0/3/topografix.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1">
+<wpt lon="11.52693" lat="47.20988"><ele><![CDATA[2605]]></ele><name><![CDATA[Glugezer Hütte]]></name></wpt>
+<wpt lon="11.64034" lat="47.16678"><ele><![CDATA[2017]]></ele><name><![CDATA[Lizumer Hütte]]></name></wpt>
+<wpt lon="11.7085" lat="47.22391"><ele><![CDATA[1802]]></ele><name><![CDATA[Weidener Hütte]]></name></wpt>
+<wpt lon="11.78832" lat="47.23233"><ele><![CDATA[2117]]></ele><name><![CDATA[Rastkogel Hütte]]></name></wpt>
+<wpt lon="11.76478" lat="47.31663"><ele><![CDATA[2234]]></ele><name><![CDATA[Kellerjoch Hütte]]></name></wpt>
 <trk><name><![CDATA[gpx-upload_track_1_66751922]]></name><extensions><label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/3"></label>
 </extensions>
 <trkseg><trkpt lon="11.41383" lat="47.22977"><ele><![CDATA[891]]></ele></trkpt>

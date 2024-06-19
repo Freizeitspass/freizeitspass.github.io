@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><gpx xmlns="http://www.topografix.com/GPX/1/1" creator="CONTWISE MAPS" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.topografix.com/GPX/gpx_overlay/0/3 http://www.topografix.com/GPX/gpx_overlay/0/3/gpx_overlay.xsd http://www.topografix.com/GPX/gpx_modified/0/1 http://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd http://www.topografix.com/GPX/Private/TopoGrafix/0/3 http://www.topografix.com/GPX/Private/TopoGrafix/0/3/topografix.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1"><trk><name><![CDATA[gpx-upload_track_1_123162826]]></name><extensions><label xmlns="http://www.topografix.com/GPX/gpx_overlay/0/3"></label>
+<wpt lon="11.236" lat="47.32"><ele><![CDATA[2605]]></ele><name><![CDATA[Nördlinger Hütte]]></name></wpt>
+<wpt lon="11.288375" lat="47.308153"><ele><![CDATA[2017]]></ele><name><![CDATA[Solsteinhaus]]></name></wpt>
+<wpt lon="11.42548" lat="47.3300"><ele><![CDATA[1802]]></ele><name><![CDATA[Pfeishütte]]></name></wpt>
+<wpt lon="11.507488" lat="47.338551"><ele><![CDATA[2117]]></ele><name><![CDATA[Bettelwurfhütte]]></name></wpt>
+<wpt lon="11.477216" lat="47.354716"><ele><![CDATA[2234]]></ele><name><![CDATA[Hallerangerhaus]]></name></wpt>
 </extensions>
 <trkseg><trkpt lon="11.20099" lat="47.30106"><ele><![CDATA[1121]]></ele></trkpt>
 <trkpt lon="11.20084" lat="47.30121"><ele><![CDATA[1121]]></ele></trkpt>
