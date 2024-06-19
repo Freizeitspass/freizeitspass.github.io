@@ -8,7 +8,6 @@
     </author>
 </metadata>
 <trk>
-    <name>Mittagsradfahrt</name>
     <type>Cycling</type>
     <trkseg>
     <trkpt lat="47.253658" lon="11.397914">
@@ -17,7 +16,6 @@
         <extensions>
         <gpxtpx:TrackPointExtension>
         <gpxtpx:Extensions>
-            <surface>asphalt</surface>
         </gpxtpx:Extensions>
         </gpxtpx:TrackPointExtension>
         </extensions>
@@ -39,7 +37,7 @@
         <extensions>
         <gpxtpx:TrackPointExtension>
         <gpxtpx:Extensions>
-            <surface>asphalt</surface>
+
         </gpxtpx:Extensions>
         </gpxtpx:TrackPointExtension>
         </extensions>

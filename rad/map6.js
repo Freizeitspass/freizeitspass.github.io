@@ -1,13 +1,13 @@
 //Map initialisieren
-let lat6 = 47.268333;
-let lng6 = 11.393333;
-let zoom6 = 9;
+
 
 document.addEventListener('DOMContentLoaded', function () {
     let map6 = L.map("map6", {
+        center: [47.268333, 11.393333],
+        zoom: 9,
         fullscreenControl: true,
         gestureHandling: true,
-    }).setView([lat6, lng6], 11);
+    });
 
     // thematische Layer
     let themaLayer = {
