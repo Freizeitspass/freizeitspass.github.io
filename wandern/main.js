@@ -6,7 +6,7 @@ let zoom = 1;
 let map = L.map("map", {
     fullscreenControl: true,
     gestureHandling: false,
-}).setView([lat, lng], 1);
+}).setView([lat, lng], 0);
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -60,6 +60,7 @@ let controlElevationKarwendel = L.control.elevation({
 }).addTo(map);
 controlElevationKarwendel.load("data/gps-daten-karwendel-hoehenweg.gpx");
 
+
 let controlElevationInntal = L.control.elevation({
     // time: false,
     position: "bottomleft",
@@ -99,20 +100,6 @@ festival.on("click", function (evt) {
     controlElevation.load("data/gps-daten-karwendel-hoehenweg.gpx")
 });
 */
-
-
-// RainViewer setup
-let rainviewer = new L.Control.Rainviewer({
-    position: 'bottomleft',
-    nextButtonText: '>',
-    playStopButtonText: 'Start/Stopp',
-    prevButtonText: '<',
-    positionSliderLabelText: "Zeit:",
-    opacitySliderLabelText: "Sichtbarkeit:",
-    animationInterval: 500,
-    opacity: 0.5
-});
-map.addControl(rainviewer);
 
 // Locate Control
 L.control.locate().addTo(map);
