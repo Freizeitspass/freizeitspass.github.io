@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freizeitspass Hiking</title>
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Leaflet Map-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!--Leaflet Fullscreen-->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+    <!-- Leaflet MiniMap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js" integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css" integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Locate Plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.81.1/L.Control.Locate.min.js" integrity="sha512-s/EGgrVhzEldZLssatR0N5oT6POS4r2ZwYa+sCXYrx8YMlKn9TQCIGTJS4c4O7w/u+bw32sNEyo+EPa+KDrw3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.81.1/L.Control.Locate.css" integrity="sha512-6+fQwheLeCW6sKV5liSHZ0rxcrN4TRBwWOhsof+3Iahu9J+WRyF4eBLjL5QshWxja6WiKE1WAtrH0hsRJ3nA8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- leaflet-elevation -->
+    <link rel="stylesheet" href="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.css" />
+    <script src="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.js"></script>
+
+    <!-- leaflet-gesture handling -->
+    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+
+    <!--Rainviewer Plugin-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css" />
+    <script src="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js"></script>
+
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <main>
+        <article>
+            <header>
+                <img src="bilder/header-wandern.jpeg" alt="Sunrise at Rastkogel (source: Merit Koch)">
+
+                <nav>
+                    FREIZEITSPASS IN INNSBRUCK:
+                    <a href="https://freizeitspass.github.io"><i class="fa-solid fa-house"></i>
+                        Startseite</a>
+                    <div class="dropdown1">
+                        <a href="https://freizeitspass.github.io/wandern" class="dropdown1-toggle"><i class="fa-solid fa-person-hiking"></i> Wanderwege</a>
+                        <div class="dropdown1-content">
+                            <a href="#ueberblick">Overview</a>
+                            <a href="#map">Map</a>
+                            <a href="#karwendel">Karwendel High Trail</a>
+                            <a href="#inntal">Inntaler High Trail</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="https://freizeitspass.github.io/rad" class="dropdown-toggle"><i class="fa-solid fa-person-biking"></i> Rennradstrecken</a>
+                        <div class="dropdown-content">
+                            <a href="https://freizeitspass.github.io/rad#ueberblick">Overview</a>
+                            <a href="https://freizeitspass.github.io/rad#ellboegen">Ellbögen
+                                Round</a>
+                            <a href="https://freizeitspass.github.io/rad#gnadenwald">Gnadenwald
+                                Round</a>
+                            <a href="https://freizeitspass.github.io/rad#lizum">Axamer Lizum</a>
+                            <a href="https://freizeitspass.github.io/rad#seefeld">Innsbruck -
+                                Seefeld</a>
+                            <a href="https://freizeitspass.github.io/rad#sellrain">Sellrain
+                                Round</a>
+                        </div>
+                    </div>
+                    <a href="https://freizeitspass.github.io/ueber" class="dropdown-toggle"> <i class="fa-solid fa-circle-info"></i>
+                        About this project</a>
+                </nav>
+            </header>
+
+            <div class="highlight">
+                <h1 id="ueberblick">The Two Most Popular Long-Distance Hikes Around Innsbruck</h1>
+                <p>Experience the untouched beauty of the Tyrolean Alps on two of the region's most impressive high trails: the <strong>Karwendel High Trail</strong> and the <strong>Inntaler High Trail</strong>. The Karwendel High Trail, which runs from Reith bei Seefeld to Scharnitz, offers a unique opportunity to explore the majestic wilderness of Austria's largest nature park. Here, you can enjoy the impressive flora and fauna from July to September, as well as the proximity to the vibrant city of Innsbruck. The 66.7 km can be completed in six days, with 4,475 meters of ascent and 4,635 meters of descent.</p>
+                <p>The Inntaler High Trail takes you from Innsbruck to Schwaz and delights with picturesque alpine pastures, crystal-clear mountain lakes, and spectacular panoramas. Perfect for adventurers and nature lovers, this trail covers 71.2 km and offers a journey through breathtaking landscapes and historic paths. Expect a total ascent of 3,930 meters and a descent of 5,376 meters, completing the trail in six days. The trail is accessible from mid-June to September and, like the Karwendel High Trail, is classified as difficult. Let yourself be enchanted by the diversity and magic of the Tyrolean mountain world! For detailed information and a comprehensive map view, please click on the map view below.</p>
+                <p>Want to experience a mountain sunrise like in the title image above? Then embark on the adventure of a lifetime and hike a high trail! In the <a href="#map">map</a> you will find both routes including elevation profiles, and below you can read the details of each stage. There, and in the slideshow, all huts are linked, so your mountain adventure only requires booking a sleeping spot! Have fun!</p>
+            </div>
+            <p></p>
+            <div class="video-container">
+                <iframe width="450" height="300" src="https://www.youtube.com/embed/VH3fwLilNzY" allowfullscreen></iframe>
+                <iframe width="450" height="300" src="https://www.youtube.com/embed/0aKnnbjHxFQ" allowfullscreen></iframe>
+            </div>
+
+            <div class="highlight">
+                <div id="map" style="width: 100%; height: 600px;" align="middle"></div>
+                <p>Datenquellen:
+                    <a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-karwendel-hoehenweg">Karwendel High Trail</a> |
+                    <a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-inntaler-hoehenweg">Inntaler High Trail</a> |
+                    <a href="https://www.data.gv.at/katalog/de/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>
+                </p>
+
+            </div>
+
+
+            </div>
+            <div class="highlight">
+                <h2 id="karwendel">Karwendel Höhenweg</h2>
+                <p>Source of the following text: <a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-karwendel-hoehenweg">tirol.at</a></p>
+                <h3>
+                    Stage 1: Reith bei Seefeld – <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Nördlinger Hütte</a>
+                </h3>
+                <p><em>
+                        Elevation gain: 1,150 meters, Duration: 3 hours, Length: 6.5 kilometers </em></p>
+                <p>The tour begins with an ascent to a cozy AV shelter with a magnificent panoramic view: Follow the road north from the train station in Reith bei Seefeld. Cross the Roman road onto the Panoramaweg until it branches off to trail no. 211. Continue on this trail and turn right in switchbacks to Schartlehnerhaus (1,856 meters). Then, over the dwarf pine ridge along the so-called "Schoaßgrate" first in switchbacks, then a bit less winding up to the Nördlinger Hütte (2,239 meters).
+
+                    Alternative: From the valley station of the Rosshütte cable cars in Seefeld, take the funicular to the Rosshütte (1,751 meters), continue with the Härmelekopfbahn to the starting point of the hike. From here, either directly via the Kuntersteig (10) to the Nördlinger Hütte or steep and exposed via the Härmelekopf and Reither Spitze (79) to the Nördlinger Hütte.</p>
+
+
+                <h3>Stage 2: Nördlinger Hütte - <a href="https://www.solsteinhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Solsteinhaus</a></h3>
+                <p><em>Elevation gain: 350 meters, Duration: 4 hours, Length: 6.7 kilometers</em></p>
+
+                <p>This stage leads over the Ursprungsattel and the Eppzirler Scharte to the Solsteinhaus. From the Nördlinger Hütte, the trail first heads east, then north below the eastern faces of the Reither Spitze and then back east to the Ursprungsattel (2,087 meters). From here, follow the descending path northeast. At the Breiten Sattel (1,794 meters), turn right onto trail 74 towards the Eppzirler Scharte. Cross the large scree field of the Kuhljoch and ascend in a few switchbacks to the Eppzirler Scharte (2,102 meters). Then descend about 200 meters into the Höllkar (trail 212). Follow trail 211/212, which leads in moderate ups and downs to the Solsteinhaus.</p>
+
+                <h3> Stage 3: Solsteinhaus - <a href="https://www.alpenverein.at/pfeishuette/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Pfeishütte</a></h3>
+                <p><em> Elevation gain: 1,303 meters, Duration: 8 hours, Length: 16.5 kilometers</em></p>
+
+                <p>The longest stage of the Karwendel High Trail leads over the Gipfelstürmerweg and Goetheweg to the Pfeishütte. From the Solsteinhaus, descend on trail 213 towards Möslalm. At the fork in the "Wilden Iss", follow the Gipfelstürmerweg (215) east. It passes a hunting lodge. Then ascend the ridge in switchbacks to the "Hippen". After a short descent through secured passages, ascend steeply to the Frau Hitt Saddle, west of the striking rock needle and Innsbruck's landmark "Frau Hitt". From the saddle, descend steeply on the Schmidhubersteig and over mountain meadows to the Seegrube restaurant (1,906 meters). From here, ascend on trail 216 to the Hafelekarhaus (2,269 meters). South of the Hafelekarspitze, the Goetheweg (219) leads to the Pfeishütte. Initially, it goes with extensive views of Innsbruck and the Inn Valley without major altitude differences over the Gleirschjöchl to the Mühlkarscharte. Here, the trail switches to the northern side of the Nordkette and offers fantastic views of the Karwendel mountains. Continue in switchbacks to the Mandlscharte (2,314 meters) and from there down into the Pfeis. The last section leads through dwarf pine fields to the Pfeishütte.
+
+                    Alternative: For the 363 meters from the Seegrube restaurant to the Hafelekarhaus, you can use the Hafelekarbahn.</p>
+
+                <h3>Stage 4: Pfeishütte - <a href="https://www.bettelwurfhuette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Bettelwurfhütte</a></h3>
+                <p><em> Elevation gain: 500 meters, Duration: 4.30 hours, Length: 8.9 kilometers</em></p>
+
+                <p>This stage leads, among other things, over the Stempeljoch and the wild romantic Wilde Bande trail to the Bettelwurfhütte. From the Pfeishütte, follow trail 221 (Via Alpina) slightly ascending eastwards to the Stempeljoch (2,215 meters). From here, the trail descends steeply over scree (beware: risk of slipping on old snowfields in early summer!) After about 140 meters of descent, turn left onto the Wilde-Bande trail. First under the eastern and southern flanks of the Stempeljochspitzen, Rosskopf, and the Großer and Kleiner Lafatscher in slight ups and downs towards the Lafatscher Joch. Before the Lafatscher Joch (2,081 meters), there is another ascent of about 80 meters. Then trail 222 (Via Alpina) runs slightly ascending east through the Kleine and Große Speckkar. You are now almost at the Bettelwurfhütte, which perches like an eagle's nest on the southern flank of the Kleiner Bettelwurf.</p>
+
+                <h3>Stage 5: Bettelwurfhütte – Großer Bettelwurf – <a href="https://www.hallerangerhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Hallerangerhaus</a></h3>
+                <p><em> Elevation gain: 777 meters, Duration: 6 hours, Length: 9.5 kilometers</em></p>
+
+                <p>This stage leads from the Bettelwurfhütte initially about 650 meters up to the fourth highest peak of the Karwendel mountains: the Großer Bettelwurf (2,726 meters). It is also the highest point of the long-distance trail. The ascent begins gently, but becomes steeper. On the "Eisengattergrat", the southern ridge of the mountain, the trail is partially exposed, requiring surefootedness and a head for heights. There are wire-secured sections and sections with easy climbing (grade I) on grippy limestone. After the summit victory and enjoying the wide view, return to the Bettelwurfhütte, the "eagle's nest of the Karwendel", and from there continue on old mule tracks (trail 222) over the Lafatscher Joch (2,081 meters) to the Hallerangerhaus. There, turn north onto trail 223. This section is part of the popular long-distance trail "Adlerweg". Between the Lafatscher, Rosskopf, and Speckkarspitze, it is always downhill to the inviting Hallerangerhaus (1,768 meters).</p>
+
+                <h3><strong>Stage 6: Hallerangerhaus - Scharnitz</strong></h3>
+                <p><em>Elevation gain: 82 meters, Duration: 5 hours, Length: 19.3 kilometers</em></p>
+
+                <p>The descent through the Hinterautal to Scharnitz forms the last stage of the Karwendel High Trail. From the Hallerangerhaus, follow trail 224 westwards (a detour to the Sunntigerspitze is recommended). Then continue to the Kohleralm, from where you soon reach the Lafatscher Niederleger. Then, descend somewhat steeper along the driveway into the Hinterautal. The Kastenalm can be reached by a short detour at the marked junction. From here, always follow the driveway down the valley, past the source of the Isar, where three mountain streams converge to form the turquoise-blue Isar. Then gently ascend to the Gleirschhöhe (1,069 meters) and then descend comfortably again, past the Gasthof Wiesenhof, to the Isar bridge and on to Scharnitz. At the Hallerangerhaus, you can rent a bike and significantly shorten the long stretch from the Kastenalm to Scharnitz.
+                </p>
+                <p><a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-karwendel-hoehenweg">Source: tirol.at</a></p>
+
+
+                <!-- Slideshow für Karwendel Weg -->
+                <div id="slideskarwendel" class="slideshow-container">
+
+                    <!-- Bilder mit Nummer und Text -->
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 5</div>
+                        <img src="bilder/huette-0.jpg" style="width:100%">
+                        <div class="text">Nördlinger Hütte <a href="https://www.noerdlingerhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 5</div>
+                        <img src="bilder/huette-1.jpeg" style="width:100%">
+                        <div class="text">Solsteinhaus <a href="https://www.solsteinhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="bilder/huette-2.jpeg" style="width:100%">
+                        <div class="text">Pfeishütte <a href="https://www.alpenverein.at/pfeishuette/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="bilder/huette-3.jpeg" style="width:100%">
+                        <div class="text">Bettelwurfhütte <a href="https://www.bettelwurfhuette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="bilder/huette-4.jpeg" style="width:100%">
+                        <div class="text">Hellerangerhaus <a href="https://www.hallerangerhaus.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <!-- Vorheriges/nächstes Foto -->
+                    <a class="prev" onclick="plusSlides(-1, slideskarwendel)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, slideskarwendel)">&#10095;</a>
+
+                    <br>
+
+                    <!-- Punkt unten zur Angabe welches Foto es ist -->
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1, slideskarwendel)"></span>
+                        <span class="dot" onclick="currentSlide(2, slideskarwendel)"></span>
+                        <span class="dot" onclick="currentSlide(3, slideskarwendel)"></span>
+                        <span class="dot" onclick="currentSlide(4, slideskarwendel)"></span>
+                        <span class="dot" onclick="currentSlide(5, slideskarwendel)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h2 id="inntal">Inntaler Höhenweg</h2>
+                <p>Quelle des folgenden Textes: <a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-inntaler-hoehenweg">Tirol.at</a></p>
+                <h3>Stage 1: Innsbruck/Igls – <a href="https://www.glungezer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Glungezerhütte</a></h3>
+                <p><em>Ascent from the mountain station: 683 meters, Duration: 3 hours, 15 minutes, Length: 7.1 kilometers</em></p>
+                <p>From Innsbruck-Igls, take the Patscherkofel cable car or ascend via Heiligwasser. From Patscherkofelhaus (1,970 meters) along the Zirbenweg to Boscheben, then right up the Glungezersteig to Glungezer Hut (2,610 meters). From there, a short ascent to Sonnenspitze (2,639 meters) and Glungezer (2,677 meters) is recommended for stunning panoramic views of around 500 peaks and cols.</p>
+
+                <h3>Stage 2: Glungezerhütte – <a href="https://www.lizumer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lizumer Hütte</a> (schwarze Bergwege)</h3>
+                <p><em>Ascent/Descent altitude: 705/1,295 meters, Duration: 7 hours, 30 minutes, Length: 14.5 kilometers</em></p>
+                <p>Glungezer – Gamslahner – Kreuzjöchl – Kreuzspitze – Rosenjoch – Grünbergspitze – Grafmartspitze – Naviser Jöchl – Mölsjoch – Klammjoch – Lizumer Hut. From Glungezer Hut, on mostly unmarked ridge paths through blockstones heading south via the scenic "seven Tuxer summits". Highest point is Rosenjoch at 2,796 meters. Continue along the ridge to Wattener Lizum and Lizumer Hut (2,019 meters). Lizumer Hut is located in the Bundesheer military training area "Lizum Walchen"; information on shooting times and rules can be obtained by calling +43.50201.6442010 or online at www.wattenberg.tirol.gv.at.</p>
+
+                <h3> Stage 3: Lizumer Hütte – <a href="https://www.weidener-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Weidener Hütte</a></h3>
+                <p><em>Ascent/Descent altitude: 672/891 meters, Duration: 5.5 hours, Length: 11.7 kilometers</em></p>
+                <p>From Lizumer Hut, follow Central Alpine Trail 02A: past the Soldiers' Church, through old Swiss stone pine stands below Torspitze, Eiskarspitze, and "Hippold", the path ascends to Grafensjoch (known as "Krovenzjoch" on old maps), 2,450 meters. From here, descend into the valley, along Weerbach to Grafennsalm and further to Weidener Hut (1,799 meters). The summit recommendation is the local mountain of Lizumer Hut, Geier (2,858 meters). Allow about three hours from Lizumer Hut. Tip: from Grafensjoch, Hippoldspitze can also be climbed (approx. 1 extra hour).</p>
+
+                <h3>Stage 4: Weidener Hütte – <a href="http://www.rastkogelhuette.de"><i class="fa-solid fa-arrow-up-right-from-square"></i> Rastkogelhütte</a></h3>
+                <p><em>Ascent/Descent altitude: 1,049/733 meters, Duration: 6.5 hours, Length: 12.4 kilometers</em></p>
+                <p>From Weidener Hut, on Central Alpine Trail 02A along Nafingbach valley, via Nafingalm at the foot of Halslspitze to Nurpensjoch. Continue on Trail No. 318 to Rastkogel (2,762 meters). Descend via the ridge, passing two small mountain lakes to Sidanjoch (2,127 meters) and Rastkogel Hut (2,124 meters).</p>
+
+                <h3>Stage 5: Rastkogelhütte – Hochfügen – <a href="https://www.kellerjochhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Kellerjochhütte</a></h3>
+                <p><em>Ascent/Descent altitude: 878/759 meters, Duration: 6 hours, Length: 14 kilometers</em></p>
+                <p>From Rastkogel Hut back to Sidanjoch (2,127 meters) and an easy descent via Trail No. 316 to Pfundsalm-Mittelleger (1,832 meters), along Finsingbach downstream to Hochfügen (1,470 meters). Overnight accommodations available here, descent only if necessary. Otherwise, continue on Trail No. 316 up to Maschentalalm (1,717 meters) and Loassattel (1,675 meters). Now either on Hochebenweg No. 311 via Naunzalm to Kellerjoch Hut or continue on Trail No. 316 to Kuhmesser with a magnificent view towards Innsbruck and Zillertal. The path from here leads below the summit to Kellerjoch Hut.</p>
+
+                <h3> Etappe 6: Kellerjochhütte – Schwaz</h3>
+                <p><em>Descent altitude: up to Grafenast 900 meters, to Schwaz 1,730 meters; Duration: to Grafenast 2 hours, to Schwaz 5 hours; Length: to Grafenast 6 kilometers, to Schwaz 11.6 kilometers</em></p>
+                <p>Before descending into the valley, a visit to the impressive summit chapel at Kellerjoch (2,344 meters) is worthwhile for breathtaking views of the Karwendel Mountains. Return on the same trail to the hut, then continue on Jägersteig to Hoch- and Niederleger of Naunzalm. Further on Jägersteig and then on "Old Kellerjoch Trail" No. 312 to Hochpillberg, Grafenast mountain station (1,347 meters), and to Schwaz.</p>
+                <p>Source: <a href="https://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-inntaler-hoehenweg">Tirol.at</a></p>
+
+                <!-- Slideshow für Inntal Weg-->
+                <div id="slidesinntal" class="slideshow-container">
+
+                    <!-- Bilder mit Nummer und Text -->
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 5</div>
+                        <img src="bilder/huette-7.jpeg" style="width:100%">
+                        <div class="text">Glungezer Hütte <a href="https://www.glungezer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 5</div>
+                        <img src="bilder/huette-6.jpeg" style="width:100%">
+                        <div class="text">Lizumer Hütte <a href="https://www.lizumer-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="bilder/huette-8.jpeg" style="width:100%">
+                        <div class="text">Weidener Hütte <a href="https://www.weidener-huette.at"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="bilder/huette-9.jpeg" style="width:100%">
+                        <div class="text">Rastkogelhütte <a href="http://www.rastkogelhuette.de"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="bilder/huette-10.jpeg" style="width:100%">
+                        <div class="text">Kellerjochhütte <a href="https://www.kellerjochhuette.at/"><i class="fa-solid fa-arrow-up-right-from-square"></i> Homepage</a> (Symbolbild, Copyright: Merit Koch)</div>
+                    </div>
+
+                    <!-- Vorheriges/nächstes Foto -->
+                    <a class="prev" onclick="plusSlides(-1, slidesinntal)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, slidesinntal)">&#10095;</a>
+                    <br>
+
+                    <!-- Punkt unten zur Angabe welches Foto es ist -->
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1, slidesinntal)"></span>
+                        <span class="dot" onclick="currentSlide(2, slidesinntal)"></span>
+                        <span class="dot" onclick="currentSlide(3, slidesinntal)"></span>
+                        <span class="dot" onclick="currentSlide(4, slidesinntal)"></span>
+                        <span class="dot" onclick="currentSlide(5, slidesinntal)"></span>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+    </main>
+    <footer>
+        <button id="scrollToTopBtn" title="Nach oben scrollen"><i class="fa-solid fa-arrow-up"></i></button>
+    </footer>
+</body>
+
+</html>
