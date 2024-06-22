@@ -130,3 +130,16 @@ function showSlides(n, slideshow) {
     slides[slideshow.currentSlideIndex - 1].style.display = "block";
     dots[slideshow.currentSlideIndex - 1].className += " active";
 }
+
+// RainViewer Plugin
+let rainviewer = new L.Control.Rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Start/Stopp',
+    prevButtonText: '<',
+    positionSliderLabelText: "Zeit:",
+    opacitySliderLabelText: "Sichtbarkeit:",
+    animationInterval: 500,
+    opacity: 0.5
+});
+map.addControl(rainviewer);
