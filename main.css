@@ -274,13 +274,15 @@ header img,
 }
 
 
-/* Dropdown Menü */
-.dropdown {
+/* Dropdown-Stile für Rad und Wandern (1) */
+.dropdown,
+.dropdown1 {
     position: relative;
     display: inline-block;
 }
 
-.dropdown-content {
+.dropdown-content,
+.dropdown1-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -289,14 +291,16 @@ header img,
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content a,
+.dropdown1-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover,
+.dropdown1-content a:hover {
     background-color: #f1f1f1;
 }
 
@@ -308,6 +312,16 @@ header img,
     background-color: #f1f1f1;
     padding: 12px 16px;
 }
+
+.dropdown1:hover .dropdown1-content {
+    display: block;
+}
+
+.dropdown1:hover .dropdown1-toggle {
+    background-color: #f1f1f1;
+    padding: 12px 16px;
+}
+
 
 /* Button zum nach oben scrollen */
 #scrollToTopBtn {
