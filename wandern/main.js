@@ -5,7 +5,7 @@ let zoom = 1;
 
 let map = L.map("map", {
     fullscreenControl: true,
-    gestureHandling: false,
+    gestureHandling: true,
 }).setView([lat, lng], 0);
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
@@ -95,7 +95,7 @@ scrollToTopBtn.addEventListener('click', function () {
     });
 });
 
-//neuer Versuch mit dieser Anleitung: https://stackoverflow.com/questions/43299759/how-do-i-make-multiple-slideshows-in-the-same-html-document
+//Multiple Slideshows, jetzt neuer Versuch mit dieser Anleitung: https://stackoverflow.com/questions/43299759/how-do-i-make-multiple-slideshows-in-the-same-html-document
 
 var slideskarwendel = document.getElementById("slideskarwendel");
 slideskarwendel.currentSlideIndex = 1;
