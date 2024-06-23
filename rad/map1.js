@@ -9,12 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gestureHandling: true,
     }).setView([lat1, lng2], zoom1);
 
-    // thematische Layer
-    let themaLayer = {
-        radladen: L.featureGroup()
-    };
-
-    // WMTS Hintergrundlayer der eGrundkarte Tirol
+    // WMTS Hintergrundlayer 
     let eGrundkarteTirol = {
         sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
             attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
@@ -32,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // Hintergrundlayer eGrundkarte Tirol 
+    // Hintergrundlayer 
     L.control.layers({
         "eGrundkarte Tirol Sommer": L.layerGroup([
             eGrundkarteTirol.sommer,
@@ -43,14 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             eGrundkarteTirol.nomenklatur
         ]),
         "OpenStreetMap": openStreetMap,
-
-    },
-        {
-            "Radgeschäfte": themaLayer.radladen,
-
-        }).addTo(map1);
-
-
+    }).addTo(map1);
 
     //Elevation Plugin
     let controlElevation = L.control.elevation({
@@ -79,31 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var lc = L.control
         .locate({
             position: "topright",
-            strings: {
-                title: "Show me where I am, yo!"
-            }
         })
         .addTo(map1);
 });
-
-//Radgeschäfte/Reparatur 
-const RADLADEN = [
-    {
-        title: "Veloflott GmbH",
-        lat: 47.27759,
-        lng: 11.41669,
-    },
-];
-
-for (let radladen of RADLADEN) {
-    L.marker([radladen.lat, radladen.lng], {
-        icon: L.icon({
-            iconUrl: `icons/icecream.png`,
-            popupAnchor: [0, -37],
-            iconAnchor: [16, 37],
-        })
-    })
-        .addTo(themaLayer.radladen)
-        .bindPopup(`<b>${radladen.title}</b> <br>
-    `)
-};
