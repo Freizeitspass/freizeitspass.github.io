@@ -118,41 +118,6 @@ var popupContent = '<div class="popup-container" id="popupContainer">' +
     '</div>' +
     '</div>';
 
-// HTML zum Body-Element hinzufügen
-document.body.insertAdjacentHTML('beforeend', popupContent);
-
-// Elemente abrufen
-var popupContainer = document.getElementById('popupContainer');
-var closeButton = document.getElementById('closeButton');
-
-// Event-Listener für das Schließen des Popups hinzufügen
-closeButton.addEventListener('click', function () {
-    popupContainer.style.display = 'none';
-});
-
-// Positionieren des Popups über der Karte
-function positionPopup() {
-    var mapTop = map._container.getBoundingClientRect().top;
-    var mapLeft = map._container.getBoundingClientRect().left;
-    var mapWidth = map._container.offsetWidth;
-
-    var popupHeight = popupContainer.offsetHeight;
-    var popupWidth = popupContainer.offsetWidth;
-
-    var topOffset = 20; // Abstand von der Oberseite der Karte
-
-    var popupTop = mapTop + topOffset;
-    var popupLeft = mapLeft + mapWidth / 2 - popupWidth / 2;
-
-    popupContainer.style.top = popupTop + 'px';
-    popupContainer.style.left = popupLeft + 'px';
-};
-
-// Initial Popup positionieren
-map.on('load', function () {
-    popupContainer.style.display = 'block';
-    positionPopup();
-});
 
 //Slideshow
 let slideIndex = 1;
@@ -212,10 +177,10 @@ fetch('data_almen/Almzentren.geojson')
     .then(data => {
         // Bounding Box für Innsbruck
         let bbox = {
-            minLat: 47.2000,
-            maxLat: 47.3000,
-            minLng: 11.3000,
-            maxLng: 11.4500
+            minLat: 47.1000,  // Geänderte Min-Latitude
+            maxLat: 47.4000,  // Geänderte Max-Latitude
+            minLng: 11.2000,  // Geänderte Min-Longitude
+            maxLng: 11.5000   // Geänderte Max-Longitude
         };
 
         let filteredFeatures = data.features.filter(feature => {
