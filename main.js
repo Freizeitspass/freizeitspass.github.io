@@ -6,14 +6,14 @@
 // über Data DV AT gefunden: https://data-tiris.opendata.arcgis.com/datasets/almzentren-1 
 
 //Map initialisieren
-let lat = 47.268333;
-let lng = 11.393333;
+let lat = 47.267222;
+let lng = 11.392778;
 let zoom = 11;
 
 let map = L.map("map", {
     fullscreenControl: true,
+    gestureHandling: true,
 }).setView([lat, lng], 11);
-
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
@@ -34,10 +34,18 @@ let baseLayers = {
     ]).addTo(map),
 };
 
-//Layercontrol hinzufügen
-L.control.layers(baseLayers).addTo(map); 
-   
-//Maßstab hinzugefügt
+//Layers für Almen
+let almenLayer = L.layerGroup();
+
+//Themalayer für Almen
+let themaLayer = {
+    "Almen": almenLayer
+}; 
+
+// Layers Control hinzufügen
+let layerControl = L.control.layers(baseLayers, themaLayer).addTo(map);
+
+// Maßstab
 L.control.scale({
     imperial: false,
 }).addTo(map);
@@ -198,4 +206,39 @@ scrollToTopBtn.addEventListener('click', function () {
     });
 });
 
+//Almen
+fetch('data_almen/Almzentren.geojson')
+    .then(response => response.json())
+    .then(data => {
+        // Bounding Box für Innsbruck
+        let bbox = {
+            minLat: 47.2000,
+            maxLat: 47.3000,
+            minLng: 11.3000,
+            maxLng: 11.4500
+        };
 
+        let filteredFeatures = data.features.filter(feature => {
+            let [lng, lat] = feature.geometry.coordinates;
+            return lat >= bbox.minLat && lat <= bbox.maxLat && lng >= bbox.minLng && lng <= bbox.maxLng;
+        });
+
+        let filteredData = {
+            type: 'FeatureCollection',
+            features: filteredFeatures
+        };
+
+        let almenGeoJSON = L.geoJSON(filteredData, {
+            onEachFeature: function (feature, layer) {
+                if (feature.properties && feature.properties.NAME) {
+                    layer.bindPopup(feature.properties.NAME);
+                }
+            }
+        });
+
+        almenLayer.addLayer(almenGeoJSON);
+        map.addLayer(almenLayer);
+    })
+    .catch(error => {
+        console.error('Error loading the GeoJSON data:', error);
+    });
