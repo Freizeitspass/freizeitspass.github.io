@@ -282,7 +282,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     ]
 
-
     //Cafes Popups
     for (let coffee of COFFEE) {
         L.marker([coffee.lat, coffee.lng], {
