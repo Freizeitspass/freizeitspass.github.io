@@ -9,12 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
         gestureHandling: true,
     }).setView([lat3, lng3], 11);
 
-    // thematische Layer
-    let themaLayer = {
-        route: L.featureGroup(),
-    }
 
-    // WMTS Hintergrundlayer der eGrundkarte Tirol
+    // WMTS Hintergrundlayer 
     let eGrundkarteTirol = {
         sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
             attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
@@ -23,16 +19,25 @@ document.addEventListener('DOMContentLoaded', function () {
             attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
             pane: "overlayPane",
         }),
+        ortho: L.tileLayer("https://wmts.kartetirol.at/gdi_ortho/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+        }),
     }
+    let openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
 
-    // Hintergrundlayer eGrundkarte Tirol mit GPX Overlay
+    // Hintergrundlayer 
     L.control.layers({
         "eGrundkarte Tirol Sommer": L.layerGroup([
             eGrundkarteTirol.sommer,
             eGrundkarteTirol.nomenklatur
         ]).addTo(map3),
-    }, {
-        "AXmer Lizum": themaLayer.route.addTo(map3)
+        "eGrundkarte Tirol Orthophoto": L.layerGroup([
+            eGrundkarteTirol.ortho,
+            eGrundkarteTirol.nomenklatur
+        ]),
+        "OpenStreetMap": openStreetMap,
     }).addTo(map3);
 
     //Style Elevation
@@ -43,10 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
         closeBtn: true,
         distanceMarkers: false,
         collapsed: true,
-        edgeScale: true,
+        edgeScale: false,
     }).addTo(map3);
     controlElevation.load("data/lizum.gpx");
-
 
 
     //Maßstab 
@@ -71,18 +75,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .addTo(map3);
-
-    //Rainviewer Plugin
-    //L.control.rainviewer({
-    //  position: 'bottomleft',
-    // nextButtonText: '>',
-    // playStopButtonText: 'Play/Stop',
-    // prevButtonText: '<',
-    // positionSliderLabelText: "Hour:",
-    // opacitySliderLabelText: "Opacity:",
-    // animationInterval: 500,
-    // opacity: 0.5
-    //}).addTo(map3);
-
 
 });

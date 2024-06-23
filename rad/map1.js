@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+
     // Hintergrundlayer 
     L.control.layers({
         "eGrundkarte Tirol Sommer": L.layerGroup([
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         theme: "blue-theme",
         distanceMarkers: false,
         collapsed: true,
-        edgeScale: true,
+        edgeScale: false,
     }).addTo(map1);
     controlElevation.load("data/gnadenwald.gpx");
 

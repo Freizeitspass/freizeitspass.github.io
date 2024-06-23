@@ -4,18 +4,13 @@ let lng2 = 11.393333;
 let zoom2 = 9;
 
 document.addEventListener('DOMContentLoaded', function () {
-
     let map2 = L.map("map2", {
         fullscreenControl: true,
         gestureHandling: true,
     }).setView([lat2, lng2], 11);
 
-    // thematische Layer
-    let themaLayer = {
-        route: L.featureGroup(),
-    }
 
-    // WMTS Hintergrundlayer der eGrundkarte Tirol
+    // WMTS Hintergrundlayer 
     let eGrundkarteTirol = {
         sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
             attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
@@ -24,28 +19,39 @@ document.addEventListener('DOMContentLoaded', function () {
             attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
             pane: "overlayPane",
         }),
+        ortho: L.tileLayer("https://wmts.kartetirol.at/gdi_ortho/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+        }),
     }
+    let openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
 
-    // Hintergrundlayer eGrundkarte Tirol mit GPX Overlay
+    // Hintergrundlayer 
     L.control.layers({
         "eGrundkarte Tirol Sommer": L.layerGroup([
             eGrundkarteTirol.sommer,
             eGrundkarteTirol.nomenklatur
         ]).addTo(map2),
-    }, {
-        "Ellbögen-Runde": themaLayer.route.addTo(map2)
+        "eGrundkarte Tirol Orthophoto": L.layerGroup([
+            eGrundkarteTirol.ortho,
+            eGrundkarteTirol.nomenklatur
+        ]),
+        "OpenStreetMap": openStreetMap,
     }).addTo(map2);
 
-    //Style Höhenprofil
+    //Style Elevation
     let controlElevation = L.control.elevation({
         elevationDiv: "#profile2",
         height: 300,
         theme: "blue-theme",
+        closeBtn: true,
         distanceMarkers: false,
         collapsed: true,
-        edgeScale: true,
+        edgeScale: false,
     }).addTo(map2);
     controlElevation.load("data/ellboegen.gpx");
+
 
     //Maßstab 
     L.control.scale({
@@ -69,17 +75,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .addTo(map2);
-
-    //Rainviewer Plugin
-    // L.control.rainviewer({
-    //  position: 'bottomleft',
-    //nextButtonText: '>',
-    // playStopButtonText: 'Play/Stop',
-    // prevButtonText: '<',
-    //  positionSliderLabelText: "Hour:",
-    //  opacitySliderLabelText: "Opacity:",
-    //  animationInterval: 500,
-    //  opacity: 0.5
-    //}).addTo(map2);
 
 });
