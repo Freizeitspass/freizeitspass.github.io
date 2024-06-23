@@ -8,7 +8,6 @@ let map = L.map("map", {
     gestureHandling: true,
 }).setView([lat, lng], 0);
 
-// WMTS Hintergrundlayer der eGrundkarte Tirol
 let eGrundkarteTirol = {
     sommer: L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
@@ -17,14 +16,21 @@ let eGrundkarteTirol = {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
         pane: "overlayPane",
     }),
-}
+    ortho: L.tileLayer("https://wmts.kartetirol.at/gdi_ortho/{z}/{x}/{y}.png", {
+        attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+    })
+};
 
 // Hintergrundlayer eGrundkarte Tirol
 let baseLayers = {
     "eGrundkarte Tirol Sommer": L.layerGroup([
         eGrundkarteTirol.sommer,
         eGrundkarteTirol.nomenklatur
-    ]).addTo(map),
+    ]),
+    "eGrundkarte Tirol Orthofoto": L.layerGroup([
+        eGrundkarteTirol.ortho,
+        eGrundkarteTirol.nomenklatur
+    ])
 };
 
 // Layers für Routen
@@ -37,8 +43,12 @@ let themaLayer = {
     "Inntal Route": inntallLayer
 };
 
+// Standard Layer hinzufügen
+baseLayers["eGrundkarte Tirol Sommer"].addTo(map);
+
 // Layers Control hinzufügen
 let layerControl = L.control.layers(baseLayers, themaLayer).addTo(map);
+
 //Maßstab 
 L.control.scale({
     imperial: false,
