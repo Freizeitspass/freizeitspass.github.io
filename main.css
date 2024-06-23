@@ -241,22 +241,6 @@ header img,
     /* Stärkerer Schatten bei Hover */
 }
 
-/* Sidebar Versuche */
-.leaflet-sidebar .leaflet-sidebar-pane {
-    padding: 10px;
-}
-
-.leaflet-sidebar .leaflet-sidebar-header {
-    background: #f7f7f7;
-    padding: 10px;
-    font-size: 18px;
-    border-bottom: 1px solid #ddd;
-}
-
-.leaflet-sidebar .leaflet-sidebar-close {
-    cursor: pointer;
-}
-
 /* Popup */
 .popup-container {
     position: absolute;
