@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let map1 = L.map("map1", {
         fullscreenControl: true,
         gestureHandling: true,
-    }).setView([lat1, lng2], 11);
+    }).setView([lat1, lng2], zoom1);
 
     // thematische Layer
     let themaLayer = {
-        route: L.featureGroup(),
-    }
+        radladen: L.featureGroup()
+    };
 
     // WMTS Hintergrundlayer der eGrundkarte Tirol
     let eGrundkarteTirol = {
@@ -23,18 +23,36 @@ document.addEventListener('DOMContentLoaded', function () {
             attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
             pane: "overlayPane",
         }),
+        ortho: L.tileLayer("https://wmts.kartetirol.at/gdi_ortho/{z}/{x}/{y}.png", {
+            attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+        }),
     }
+    let openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
 
-    // Hintergrundlayer eGrundkarte Tirol mit GPX Overlay
+
+    // Hintergrundlayer eGrundkarte Tirol 
     L.control.layers({
         "eGrundkarte Tirol Sommer": L.layerGroup([
             eGrundkarteTirol.sommer,
             eGrundkarteTirol.nomenklatur
         ]).addTo(map1),
-    }, {
-        "Gnadenwald-Runde": themaLayer.route.addTo(map1)
-    }).addTo(map1);
+        "eGrundkarte Tirol Orthophoto": L.layerGroup([
+            eGrundkarteTirol.ortho,
+            eGrundkarteTirol.nomenklatur
+        ]),
+        "OpenStreetMap": openStreetMap,
 
+    },
+        {
+            "Radgeschäfte": themaLayer.radladen,
+
+        }).addTo(map1);
+
+
+
+    //Elevation Plugin
     let controlElevation = L.control.elevation({
         elevationDiv: "#profile1",
         height: 300,
@@ -66,6 +84,26 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .addTo(map1);
-
-
 });
+
+//Radgeschäfte/Reparatur 
+const RADLADEN = [
+    {
+        title: "Veloflott GmbH",
+        lat: 47.27759,
+        lng: 11.41669,
+    },
+];
+
+for (let radladen of RADLADEN) {
+    L.marker([radladen.lat, radladen.lng], {
+        icon: L.icon({
+            iconUrl: `icons/icecream.png`,
+            popupAnchor: [0, -37],
+            iconAnchor: [16, 37],
+        })
+    })
+        .addTo(themaLayer.radladen)
+        .bindPopup(`<b>${radladen.title}</b> <br>
+    `)
+};
