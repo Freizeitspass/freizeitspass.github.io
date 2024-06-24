@@ -57,6 +57,18 @@ new L.Control.MiniMap(L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}
     toggleDisplay: true,
 }).addTo(map);
 
+// Speichern der Scrollposition vor dem Neuladen der Seite
+window.addEventListener('beforeunload', function() {
+    localStorage.setItem('scrollPosition', window.scrollY);
+});
+
+// Wiederherstellen der Scrollposition nach dem Neuladen der Seite
+window.addEventListener('load', function() {
+    if (localStorage.getItem('scrollPosition') !== null) {
+        window.scrollTo(0, parseInt(localStorage.getItem('scrollPosition')));
+    }
+});
+
 // RainViewer Plugin
 let rainviewer = new L.Control.Rainviewer({
     position: 'bottomleft',
@@ -110,15 +122,6 @@ map.on('click', function (e) {
     });
 });
 
-// HTML für das Popup-Fenster erstellen
-var popupContent = '<div class="popup-container" id="popupContainer">' +
-    '<div class="popup">' +
-    '<span class="close" id="closeButton">&times;</span>' +
-    '<p>Mit dem Reachability Plugin können Sie auf einer Karte Erreichbarkeitszonen darstellen.</p><p>Wählen Sie ein Fortbewegungsmittel (Auto, Fahrrad, zu Fuß) und sehen Sie,</p> <p>welche Gebiete Sie in einer bestimmten Zeitspanne (z.B. 5, 10, 15 Minuten) erreichen können.</p><p> Klicken Sie einfach auf die Karte, um die Zonen von einem bestimmten Punkt aus zu visualisieren.</p>' +
-    '</div>' +
-    '</div>';
-
-
 //Slideshow
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -151,7 +154,6 @@ function showSlides(n) {
 
 // Nach oben scrollen Button
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
 window.onscroll = function () {
     scrollFunction();
 };
