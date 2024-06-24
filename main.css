@@ -158,6 +158,20 @@ header img,
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* Grundlegende Styles für den Container */
+.container {
+    display: flex;
+    justify-content: center; /* Zentriert den Container horizontal */
+    align-items: center; /* Zentriert den Container vertikal */
+    height: 100vh; /* Vollbild-Höhe */
+}
+
+/* Bild-Styling */
+figure {
+    margin: 0; /* Entfernt Standard-Margen */
+    width: 100%; /* Stellt sicher, dass das Bild 100% der Containerbreite einnimmt */
+}
+
 /* Für kleine Laptops */
 @media screen and (max-width: 1280px) {
 
