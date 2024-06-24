@@ -13,45 +13,18 @@
     <trkpt lat="47.253658" lon="11.397914">
         <ele>589.5</ele>
         <time>2024-04-27T09:53:26.682Z</time>
-        <extensions>
-        <gpxtpx:TrackPointExtension>
-        <gpxtpx:Extensions>
-        </gpxtpx:Extensions>
-        </gpxtpx:TrackPointExtension>
-        </extensions>
     </trkpt>
     <trkpt lat="47.253635" lon="11.397918">
         <ele>589.5</ele>
         <time>2024-04-27T09:53:27.705Z</time>
-        <extensions>
-        <gpxtpx:TrackPointExtension>
-        <gpxtpx:Extensions>
-            <surface>asphalt</surface>
-        </gpxtpx:Extensions>
-        </gpxtpx:TrackPointExtension>
-        </extensions>
     </trkpt>
     <trkpt lat="47.253498" lon="11.397971">
         <ele>589.8</ele>
         <time>2024-04-27T09:53:33.966Z</time>
-        <extensions>
-        <gpxtpx:TrackPointExtension>
-        <gpxtpx:Extensions>
-
-        </gpxtpx:Extensions>
-        </gpxtpx:TrackPointExtension>
-        </extensions>
     </trkpt>
     <trkpt lat="47.253439" lon="11.397991">
         <ele>590.0</ele>
         <time>2024-04-27T09:53:36.642Z</time>
-        <extensions>
-        <gpxtpx:TrackPointExtension>
-        <gpxtpx:Extensions>
-            <surface>asphalt</surface>
-        </gpxtpx:Extensions>
-        </gpxtpx:TrackPointExtension>
-        </extensions>
     </trkpt>
     <trkpt lat="47.253404" lon="11.397993">
         <ele>567.6</ele>
