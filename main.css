@@ -158,43 +158,10 @@ header img,
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Globale Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    display: grid;
-    place-items: center; /* Zentriert den Inhalt horizontal und vertikal */
-    min-height: 100vh; /* Vollbild-Höhe */
-    margin: 0;
-    font-family: Arial, sans-serif; /* Optional, für bessere Lesbarkeit */
-}
-
-/* Grundlegende Styles für den Container */
-.container {
-    width: 100%;
-    max-width: 1200px; /* Maximale Breite des Containers */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Bild-Styling */
-figure {
-    margin: 0;
-    width: 100%;
-    text-align: center; /* Zentriert das Bild innerhalb der Figure */
-}
-
-figure img {
-    max-width: 100%;
-    height: auto;
-}
 
 /* Für kleine Laptops */
 @media screen and (max-width: 1280px) {
+
     figure {
         margin-left: 0;
         width: 100%;
