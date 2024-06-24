@@ -3,9 +3,9 @@
 
 body {
     background-color: #d3ecf2;
-    max-width: 1380px;
+    /*max-width: 1380px;*/
     margin: auto;
-
+    padding: 0;
 }
 
 header>img {
@@ -53,6 +53,7 @@ main {
     max-width: 1024px;
     margin: auto;
     margin-top: -50px;
+    padding: 0 20px;
 }
 
 article {
