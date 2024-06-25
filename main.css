@@ -3,13 +3,19 @@
 
 body {
     background-color: #d3ecf2;
-    /*max-width: 1380px;*/
     margin: auto;
     padding: 0;
 }
 
-header>img {
-    max-width: 100%;
+header {
+    position: relative;
+    width: 100%;
+    margin-top: -16px;
+}
+
+header img {
+    width: 100%;
+    height: auto;
 }
 
 .bree-serif-regular {
@@ -21,7 +27,7 @@ header>img {
 /* Navigationsleiste */
 nav {
     position: relative;
-    margin: auto;
+    margin: 0 auto;
     margin-top: -5px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -45,19 +51,20 @@ nav a:hover {
 }
 
 .nav-link.ml-auto {
-    margin-left: auto;
+    margin-left: 0 auto;
 }
 
 /* Allgemeines */
 main {
-    max-width: 1024px;
-    margin: auto;
-    margin-top: -50px;
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
     padding: 0 20px;
 }
 
 article {
     padding: 1em;
+    max-width: 100%;
 }
 
 article p,
@@ -88,7 +95,7 @@ article figure>img {
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
     margin: 0 auto;
     margin-top: 15px;
-    max-width: 1048px;
+    max-width: 100%;
 }
 
 .highlight2 {
@@ -97,7 +104,7 @@ article figure>img {
     border-radius: 8px;
     margin-bottom: 5px;
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 80%;
     text-align: center;
 }
 
@@ -158,22 +165,9 @@ header img,
         0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Grundlegende Styles für den Container */
-.container {
-    display: flex;
-    justify-content: center; /* Zentriert den Container horizontal */
-    align-items: center; /* Zentriert den Container vertikal */
-    height: 100vh; /* Vollbild-Höhe */
-}
-
-/* Bild-Styling */
-figure {
-    margin: 0; /* Entfernt Standard-Margen */
-    width: 100%; /* Stellt sicher, dass das Bild 100% der Containerbreite einnimmt */
-}
 
 /* Für kleine Laptops */
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1080px) {
 
     figure {
         margin-left: 0;
@@ -255,6 +249,7 @@ figure {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     /* Stärkerer Schatten bei Hover */
 }
+
 
 /* Popup */
 .popup-container {
