@@ -177,9 +177,15 @@ header img,
 
 /* Für Handy */
 @media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     nav {
         flex-direction: column;
         padding: 5px;
+        width: 100%;
     }
 
     .dropdown {
@@ -209,6 +215,11 @@ header img,
 
     .highlight {
         padding: 10px;
+    }
+
+    header,
+    footer {
+        width: 100%;
     }
 
 }
