@@ -182,6 +182,10 @@ header img,
         padding: 0;
     }
 
+    main {
+        max-width: 100%;
+    }
+
     nav {
         flex-direction: column;
         padding: 5px;
