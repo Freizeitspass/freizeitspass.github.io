@@ -178,7 +178,7 @@ header img,
 /* Für Handy */
 @media (max-width: 768px) {
     body {
-        margin: 0;
+        margin: -5px;
         padding: 0;
     }
 
